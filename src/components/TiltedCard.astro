@@ -1,0 +1,140 @@
+---
+export interface Props {
+  className?: string;
+  rotateAmplitude?: number;
+  scaleOnHover?: number;
+}
+
+const { className = "", rotateAmplitude = 12, scaleOnHover = 1.05 } = Astro.props;
+---
+
+<div class={`tilted-card ${className}`} data-rotate-amplitude={rotateAmplitude} data-scale-on-hover={scaleOnHover}>
+  <div class="tilted-card-inner">
+    <slot />
+  </div>
+  <div class="tilted-card-shine"></div>
+</div>
+
+<style>
+  .tilted-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: linear-gradient(to bottom right, rgba(17, 24, 39, 0.5), rgba(17, 24, 39, 0.2));
+    border: 1px solid rgba(31, 41, 55, 1);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  .tilted-card-inner {
+    position: relative;
+    z-index: 10;
+    padding: 1.5rem;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease;
+  }
+
+  .tilted-card-shine {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: linear-gradient(
+      45deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%
+    );
+    transform: translateX(-100%);
+  }
+
+  .tilted-card:hover .tilted-card-shine {
+    @apply opacity-100;
+    animation: shine 0.6s ease;
+  }
+
+  @keyframes shine {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Custom variants */
+  .tilted-card.blue {
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  .tilted-card.blue:hover {
+    border-color: rgba(59, 130, 246, 0.6);
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.2);
+  }
+
+  .tilted-card.purple {
+    border-color: rgba(168, 85, 247, 0.3);
+  }
+
+  .tilted-card.purple:hover {
+    border-color: rgba(168, 85, 247, 0.6);
+    box-shadow: 0 10px 15px -3px rgba(168, 85, 247, 0.2);
+  }
+
+  .tilted-card.green {
+    border-color: rgba(34, 197, 94, 0.3);
+  }
+
+  .tilted-card.green:hover {
+    border-color: rgba(34, 197, 94, 0.6);
+    box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.2);
+  }
+
+  .tilted-card.pink {
+    border-color: rgba(236, 72, 153, 0.3);
+  }
+
+  .tilted-card.pink:hover {
+    border-color: rgba(236, 72, 153, 0.6);
+    box-shadow: 0 10px 15px -3px rgba(236, 72, 153, 0.2);
+  }
+</style>
+
+<script>
+  // 3D tilt effect
+  document.querySelectorAll('.tilted-card').forEach(card => {
+    const inner = card.querySelector('.tilted-card-inner') as HTMLElement;
+    const rotateAmplitude = parseInt(card.getAttribute('data-rotate-amplitude') || '12');
+    const scaleOnHover = parseFloat(card.getAttribute('data-scale-on-hover') || '1.05');
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = (y - centerY) / centerY * -rotateAmplitude;
+      const rotateY = (x - centerX) / centerX * rotateAmplitude;
+      
+      inner.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scaleOnHover})`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      inner.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = `scale(${scaleOnHover})`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'scale(1)';
+    });
+  });
+</script>

@@ -3,7 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import GitHubDemo from '../components/GitHubDemo.astro';
 import TechnicalDetails from '../components/TechnicalDetails.astro';
-import Features from '../components/Features.astro';
+import MagicBento from '../components/MagicBento.astro';
+import SpotlightCard from '../components/SpotlightCard.astro';
+import TiltedCard from '../components/TiltedCard.astro';
 import CTA from '../components/CTA.astro';
 import '../styles/global.css';
 ---
@@ -102,14 +104,14 @@ import '../styles/global.css';
 			</div>
 		</section>
 
-		<Features />
+		<MagicBento />
 
 		<TechnicalDetails />
 
 		<!-- Vision Section -->
 		<section class="relative z-10 px-6 py-20 lg:px-12">
 			<div class="max-w-7xl mx-auto">
-				<div class="glass-card p-12 text-center">
+				<SpotlightCard className="p-12 text-center" spotlightColor="rgba(168, 85, 247, 0.2)">
 					<h2 class="text-3xl md:text-4xl font-bold mb-6">
 						The Vision: <span class="gradient-text">Sustainable Open Source</span>
 					</h2>
@@ -132,7 +134,7 @@ import '../styles/global.css';
 							<p class="text-gray-400">in unpaid labor value</p>
 						</div>
 					</div>
-				</div>
+				</SpotlightCard>
 			</div>
 		</section>
 

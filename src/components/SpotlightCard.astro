@@ -1,0 +1,88 @@
+---
+export interface Props {
+  className?: string;
+  spotlightColor?: string;
+}
+
+const { className = "", spotlightColor = "rgba(59, 130, 246, 0.2)" } = Astro.props;
+---
+
+<div class={`spotlight-card ${className}`}>
+  <div class="spotlight" style={`--spotlight-color: ${spotlightColor}`}></div>
+  <div class="spotlight-content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .spotlight-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: linear-gradient(to bottom right, rgba(17, 24, 39, 0.5), rgba(17, 24, 39, 0.2));
+    border: 1px solid rgba(31, 41, 55, 1);
+    backdrop-filter: blur(8px);
+  }
+
+  .spotlight {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      var(--spotlight-color),
+      transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .spotlight-card:hover .spotlight {
+    opacity: 1;
+  }
+
+  .spotlight-content {
+    position: relative;
+    z-index: 10;
+    padding: 1.5rem;
+  }
+
+  /* Custom spotlight colors */
+  .spotlight-card.blue .spotlight {
+    --spotlight-color: rgba(59, 130, 246, 0.2);
+  }
+
+  .spotlight-card.purple .spotlight {
+    --spotlight-color: rgba(168, 85, 247, 0.2);
+  }
+
+  .spotlight-card.green .spotlight {
+    --spotlight-color: rgba(34, 197, 94, 0.2);
+  }
+
+  .spotlight-card.pink .spotlight {
+    --spotlight-color: rgba(236, 72, 153, 0.2);
+  }
+</style>
+
+<script>
+  // Track mouse position for spotlight effect
+  document.querySelectorAll('.spotlight-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+
+    card.addEventListener('mouseenter', () => {
+      card.querySelector('.spotlight').style.opacity = '1';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.querySelector('.spotlight').style.opacity = '0';
+    });
+  });
+</script>

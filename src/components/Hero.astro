@@ -1,4 +1,5 @@
 ---
+import TiltedCard from './TiltedCard.astro';
 ---
 
 <section class="relative z-10 px-6 py-20 lg:px-12 lg:py-32">
@@ -40,22 +41,22 @@
 
 		<!-- Stats -->
 		<div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
-			<div class="glass-card p-6 text-center">
+			<TiltedCard className="blue text-center">
 				<div class="text-3xl font-bold gradient-text">$0</div>
 				<div class="text-gray-400 mt-1">Raised So Far</div>
-			</div>
-			<div class="glass-card p-6 text-center">
+			</TiltedCard>
+			<TiltedCard className="purple text-center">
 				<div class="text-3xl font-bold gradient-text">0</div>
 				<div class="text-gray-400 mt-1">Issues Funded</div>
-			</div>
-			<div class="glass-card p-6 text-center">
+			</TiltedCard>
+			<TiltedCard className="green text-center">
 				<div class="text-3xl font-bold gradient-text">∞</div>
 				<div class="text-gray-400 mt-1">Potential</div>
-			</div>
-			<div class="glass-card p-6 text-center">
+			</TiltedCard>
+			<TiltedCard className="pink text-center">
 				<div class="text-3xl font-bold gradient-text">1</div>
 				<div class="text-gray-400 mt-1">Dream</div>
-			</div>
+			</TiltedCard>
 		</div>
 	</div>
 </section>
