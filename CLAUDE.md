@@ -35,6 +35,7 @@ This is an **Astro-based landing page** for PRiority, a GitHub issue funding pla
 
 ### Deployment
 
+- **Repository**: `https://github.com/gunta/PRiority`
 - Configured for **GitHub Pages** deployment at `https://gunta.github.io/PRiority`
 - Site and base URLs are configured in `astro.config.mjs`
 - Uses GitHub Actions for automated deployment (workflow not visible in current structure)
