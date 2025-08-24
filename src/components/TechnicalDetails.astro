@@ -123,11 +123,10 @@
     <span class="text-purple-400">steps:</span>
       - <span class="text-purple-400">uses:</span> priority-ai/create-payment@v1
         <span class="text-purple-400">with:</span>
-          <span class="text-blue-400">provider:</span> <span class="text-green-400">${'${{'} env.PAYMENT_PROVIDER ${'}}'}</span>  <span class="text-gray-500"># stripe, polar, sponsors</span>
+          <span class="text-blue-400">provider:</span> <span class="text-green-400">${'${{'} env.PAYMENT_PROVIDER ${'}}'}</span>  <span class="text-gray-500"># stripe, sponsors</span>
           <span class="text-blue-400">amount:</span> ${'${{'} env.FUNDING_AMOUNT ${'}}'}
         <span class="text-purple-400">env:</span>
           <span class="text-blue-400">STRIPE_RESTRICTED_KEY:</span> ${'${{'} secrets.STRIPE_RESTRICTED_KEY ${'}}'}
-          <span class="text-blue-400">POLAR_ACCESS_TOKEN:</span> ${'${{'} secrets.POLAR_ACCESS_TOKEN ${'}}'}
 
   <span class="text-blue-400">agent-work:</span>
     <span class="text-purple-400">name:</span> Autonomous Agent Execution
@@ -202,10 +201,6 @@
       <span class="text-blue-400">restricted_key:</span> <span class="text-green-400">${'${STRIPE_RESTRICTED_KEY}'}</span>
       <span class="text-blue-400">webhook_secret:</span> <span class="text-green-400">${'${STRIPE_WEBHOOK_SECRET}'}</span>
       
-    <span class="text-blue-400">polar:</span>
-      <span class="text-blue-400">enabled:</span> true
-      <span class="text-blue-400">organization:</span> your-org
-      
     <span class="text-blue-400">github_sponsors:</span>
       <span class="text-blue-400">enabled:</span> true
       <span class="text-blue-400">tiers:</span>
@@ -277,8 +272,8 @@
 							<span class="text-gray-500">Fund with $500</span>
 						</div>
 						<div class="flex justify-between items-start">
-							<code class="text-green-400">/fund polar 1000</code>
-							<span class="text-gray-500">Fund via Polar.sh</span>
+							<code class="text-green-400">/fund sponsors 1000</code>
+							<span class="text-gray-500">Fund via GitHub Sponsors</span>
 						</div>
 						<div class="flex justify-between items-start">
 							<code class="text-green-400">/confirm pi_xyz</code>
