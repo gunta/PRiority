@@ -2,14 +2,12 @@
 	Installed from https://reactbits.dev/ts/tailwind/
 */
 
-import {
+import React, {
   forwardRef,
   useImperativeHandle,
   useEffect,
   useRef,
   useMemo,
-  FC,
-  ReactNode,
 } from "react";
 
 import * as THREE from "three";
@@ -93,7 +91,7 @@ function extendMaterial<T extends THREE.Material = THREE.Material>(
   return mat;
 }
 
-const CanvasWrapper: FC<{ children: ReactNode }> = ({ children }) => (
+const CanvasWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <Canvas dpr={[1, 2]} frameloop="always" className="w-full h-full relative">
     {children}
   </Canvas>
@@ -195,7 +193,7 @@ interface BeamsProps {
   rotation?: number;
 }
 
-const Beams: FC<BeamsProps> = ({
+const Beams: React.FC<BeamsProps> = ({
   beamWidth = 2,
   beamHeight = 15,
   beamNumber = 12,
@@ -385,7 +383,7 @@ const PlaneNoise = forwardRef<
 ));
 PlaneNoise.displayName = "PlaneNoise";
 
-const DirLight: FC<{ position: [number, number, number]; color: string }> = ({
+const DirLight: React.FC<{ position: [number, number, number]; color: string }> = ({
   position,
   color,
 }) => {

@@ -2,10 +2,10 @@
 	Installed from https://reactbits.dev/ts/tailwind/
 */
 
-import { useRef, useEffect, useState, ReactNode } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 interface FadeContentProps {
-  children: ReactNode;
+  children: React.ReactNode;
   blur?: boolean;
   duration?: number;
   easing?: string;

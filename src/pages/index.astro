@@ -9,6 +9,10 @@ import TiltedCard from '../components/TiltedCard.astro';
 import CTA from '../components/CTA.astro';
 import CrowdfundingCampaign from '../components/CrowdfundingCampaign.astro';
 import LightRays from '../Backgrounds/LightRays/LightRays.tsx';
+import BlobCursor from '../Animations/BlobCursor/BlobCursor.tsx';
+import Particles from '../Backgrounds/Particles/Particles.tsx';
+import Beams from '../Backgrounds/Beams/Beams.tsx';
+import FadeContent from '../Animations/FadeContent/FadeContent.tsx';
 import '../styles/global.css';
 ---
 
@@ -33,7 +37,40 @@ import '../styles/global.css';
 			fadeDistance={1.2}
 			saturation={0.6}
 			followMouse={false}
-			className="fixed top-0 left-0 w-full h-full pointer-events-none z-[-10]"
+			className="fixed top-0 left-0 w-full h-full pointer-events-none z-[-30]"
+		/>
+
+		<!-- Particles Background -->
+		<Particles 
+			client:load
+			particleCount={80}
+			particleSpread={1000}
+			speed={0.02}
+			particleColors={["#60a5fa", "#a78bfa", "#34d399"]}
+			moveParticlesOnHover={true}
+			particleHoverFactor={0.3}
+			alphaParticles={true}
+			particleBaseSize={2}
+			sizeRandomness={3}
+			cameraDistance={300}
+			disableRotation={false}
+			className="fixed top-0 left-0 w-full h-full pointer-events-none z-[-5]"
+		/>
+
+		<!-- Interactive Cursor -->
+		<BlobCursor 
+			client:load
+			blobType="circle"
+			fillColor="#60a5fa"
+			trailCount={12}
+			sizes={[30, 25, 20, 15, 12, 10, 8, 6, 5, 4, 3, 2]}
+			opacities={[0.8, 0.7, 0.6, 0.5, 0.4, 0.35, 0.3, 0.25, 0.2, 0.15, 0.1, 0.05]}
+			shadowColor="#60a5fa"
+			shadowBlur={20}
+			useFilter={true}
+			fastDuration={0.15}
+			slowDuration={0.4}
+			zIndex={9999}
 		/>
 
 		<!-- Navigation -->
@@ -62,13 +99,27 @@ import '../styles/global.css';
 
 		<!-- How It Works -->
 		<section id="how-it-works" class="relative z-10 px-6 py-20 lg:px-12">
+			<!-- Beams Background -->
+			<div class="absolute inset-0 pointer-events-none z-[-5]">
+				<Beams 
+					client:load
+					colorStart="#60a5fa"
+					colorEnd="#a78bfa"
+					count={8}
+					animated={true}
+					spacing={80}
+					offset={20}
+					opacity={0.15}
+				/>
+			</div>
+			
 			<div class="max-w-7xl mx-auto">
-				<div class="text-center mb-16">
+				<FadeContent client:load className="text-center mb-16">
 					<h2 class="text-4xl md:text-5xl font-bold mb-4">
 						<span class="gradient-text">Zero Friction.</span> Maximum Impact.
 					</h2>
 					<p class="text-xl text-gray-400">From issue to funded to shipped in minutes, not months.</p>
-				</div>
+				</FadeContent>
 
 				<div class="grid md:grid-cols-3 gap-8">
 					<div class="feature-card">
@@ -133,30 +184,32 @@ import '../styles/global.css';
 		<!-- Vision Section -->
 		<section class="relative z-10 px-6 py-20 lg:px-12">
 			<div class="max-w-7xl mx-auto">
-				<SpotlightCard className="p-12 text-center" spotlightColor="rgba(168, 85, 247, 0.2)">
-					<h2 class="text-3xl md:text-4xl font-bold mb-6">
-						The Vision: <span class="gradient-text">Sustainable Open Source</span>
-					</h2>
-					<p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-						Imagine a world where every critical bug gets fixed in hours, not months. 
-						Where maintainers earn fair wages for their expertise. Where enterprises can 
-						accelerate development without the overhead of hiring.
-					</p>
-					<div class="grid md:grid-cols-3 gap-8 text-left">
-						<div>
-							<div class="text-3xl font-bold gradient-text mb-2">90%</div>
-							<p class="text-gray-400">of companies use open source</p>
+				<FadeContent client:load>
+					<SpotlightCard className="p-12 text-center" spotlightColor="rgba(168, 85, 247, 0.2)">
+						<h2 class="text-3xl md:text-4xl font-bold mb-6">
+							The Vision: <span class="gradient-text">Sustainable Open Source</span>
+						</h2>
+						<p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+							Imagine a world where every critical bug gets fixed in hours, not months. 
+							Where maintainers earn fair wages for their expertise. Where enterprises can 
+							accelerate development without the overhead of hiring.
+						</p>
+						<div class="grid md:grid-cols-3 gap-8 text-left">
+							<div>
+								<div class="text-3xl font-bold gradient-text mb-2">90%</div>
+								<p class="text-gray-400">of companies use open source</p>
+							</div>
+							<div>
+								<div class="text-3xl font-bold gradient-text mb-2">0.02%</div>
+								<p class="text-gray-400">contribute financially</p>
+							</div>
+							<div>
+								<div class="text-3xl font-bold gradient-text mb-2">$8.8T</div>
+								<p class="text-gray-400">in unpaid labor value</p>
+							</div>
 						</div>
-						<div>
-							<div class="text-3xl font-bold gradient-text mb-2">0.02%</div>
-							<p class="text-gray-400">contribute financially</p>
-						</div>
-						<div>
-							<div class="text-3xl font-bold gradient-text mb-2">$8.8T</div>
-							<p class="text-gray-400">in unpaid labor value</p>
-						</div>
-					</div>
-				</SpotlightCard>
+					</SpotlightCard>
+				</FadeContent>
 			</div>
 		</section>
 
