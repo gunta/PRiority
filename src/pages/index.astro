@@ -7,23 +7,40 @@ import MagicBento from '../components/MagicBento.astro';
 import SpotlightCard from '../components/SpotlightCard.astro';
 import TiltedCard from '../components/TiltedCard.astro';
 import CTA from '../components/CTA.astro';
+import CrowdfundingCampaign from '../components/CrowdfundingCampaign.astro';
+import LightRays from '../Backgrounds/LightRays/LightRays.tsx';
 import '../styles/global.css';
 ---
 
 <Layout title="PRiority - Zero-Friction GitHub Issue Funding">
 	<div class="relative overflow-hidden">
 		<!-- Animated background -->
-		<div class="fixed inset-0 mesh-gradient opacity-30"></div>
-		<div class="fixed inset-0">
+		<div class="fixed inset-0 mesh-gradient opacity-30 z-[-20]"></div>
+		<div class="fixed inset-0 z-[-15]">
 			<div class="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float"></div>
 			<div class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float" style="animation-delay: 2s;"></div>
 		</div>
 
+		<!-- Light Rays Background -->
+		<LightRays 
+			client:load 
+			raysOrigin="top-center"
+			raysColor="#60a5fa"
+			raysSpeed={0.3}
+			lightSpread={1.8}
+			rayLength={2.5}
+			pulsating={false}
+			fadeDistance={1.2}
+			saturation={0.6}
+			followMouse={false}
+			className="fixed top-0 left-0 w-full h-full pointer-events-none z-[-10]"
+		/>
+
 		<!-- Navigation -->
-		<nav class="relative z-10 px-6 py-6 lg:px-12">
+		<nav class="relative z-50 px-6 py-6 lg:px-12">
 			<div class="max-w-7xl mx-auto flex items-center justify-between">
 				<div class="flex items-center space-x-2">
-					<img src="/public/logo.png" alt="PRiority Logo" style="height: 4rem; width: auto; object-fit: contain;" />
+					<img src="/PRiority/logo.png" alt="PRiority Logo" style="height: 4rem; width: auto; object-fit: contain;" />
 				</div>
 				<div class="flex items-center space-x-8">
 					<a href="#how-it-works" class="hidden md:block text-gray-300 hover:text-white transition">How it Works</a>
@@ -35,9 +52,13 @@ import '../styles/global.css';
 			</div>
 		</nav>
 
-		<Hero />
+		<div class="relative z-10">
+			<Hero />
+		</div>
 
-		<GitHubDemo />
+		<div class="relative z-10">
+			<GitHubDemo />
+		</div>
 
 		<!-- How It Works -->
 		<section id="how-it-works" class="relative z-10 px-6 py-20 lg:px-12">
@@ -101,9 +122,13 @@ import '../styles/global.css';
 			</div>
 		</section>
 
-		<MagicBento />
+		<div class="relative z-10">
+			<MagicBento />
+		</div>
 
-		<TechnicalDetails />
+		<div class="relative z-10">
+			<TechnicalDetails />
+		</div>
 
 		<!-- Vision Section -->
 		<section class="relative z-10 px-6 py-20 lg:px-12">
@@ -135,7 +160,13 @@ import '../styles/global.css';
 			</div>
 		</section>
 
-		<CTA />
+		<div class="relative z-10">
+			<CrowdfundingCampaign />
+		</div>
+
+		<div class="relative z-10">
+			<CTA />
+		</div>
 
 		<!-- Footer -->
 		<footer class="relative z-10 px-6 py-12 lg:px-12 border-t border-gray-800">

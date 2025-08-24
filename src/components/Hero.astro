@@ -7,7 +7,7 @@ import TiltedCard from './TiltedCard.astro';
 	<div class="logo-section">
 		<div class="logo-container">
 			<div class="logo-icon">
-				<img src="/public/logo.png" alt="PRiority Logo" />
+				<img src="/PRiority/logo.png" alt="PRiority Logo" />
 			</div>
 			<div class="logo-text">
 				<p class="text-lg md:text-xl text-gray-400 mt-2">AI-Powered GitHub Issue Funding</p>
@@ -80,6 +80,8 @@ import TiltedCard from './TiltedCard.astro';
 
 	.logo-section {
 		margin-bottom: 4rem;
+		position: relative;
+		z-index: 10;
 	}
 
 	.logo-container {
@@ -105,6 +107,8 @@ import TiltedCard from './TiltedCard.astro';
 	.hero-content {
 		max-width: 72rem;
 		margin: 0 auto;
+		position: relative;
+		z-index: 10;
 	}
 
 	.glow-button {

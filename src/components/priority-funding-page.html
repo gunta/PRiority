@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fund PRiority - Make Open Source Sustainable</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+            color: #c9d1d9;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        h1 {
+            font-size: 56px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #58a6ff 0%, #bc8cff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .tagline {
+            font-size: 24px;
+            color: #8b949e;
+            margin-bottom: 16px;
+        }
+        
+        .creator {
+            font-size: 18px;
+            color: #58a6ff;
+        }
+        
+        .creator a {
+            color: #58a6ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .creator a:hover {
+            text-decoration: underline;
+        }
+        
+        .progress-section {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 48px;
+        }
+        
+        .progress-bar {
+            background: #161b22;
+            border-radius: 8px;
+            height: 32px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1f6feb 0%, #bc8cff 100%);
+            width: 12%;
+            transition: width 2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+        }
+        
+        .progress-text {
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 32px;
+            font-weight: 600;
+            color: #58a6ff;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #6e7681;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        
+        .tier-card {
+            background: #0d1117;
+            border: 2px solid #30363d;
+            border-radius: 12px;
+            padding: 24px;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .tier-card:hover {
+            border-color: #58a6ff;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(88, 166, 255, 0.15);
+        }
+        
+        .tier-card.popular {
+            border-color: #bc8cff;
+            box-shadow: 0 8px 24px rgba(188, 140, 255, 0.2);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: linear-gradient(135deg, #bc8cff 0%, #ff79c6 100%);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .tier-amount {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #58a6ff 0%, #bc8cff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        
+        .tier-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #f0f6fc;
+            margin-bottom: 16px;
+        }
+        
+        .tier-description {
+            color: #8b949e;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+        
+        .tier-features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+        
+        .tier-features li {
+            padding: 8px 0;
+            color: #8b949e;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .tier-features li::before {
+            content: "✓";
+            color: #3fb950;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .fund-button {
+            background: linear-gradient(135deg, #1f6feb 0%, #bc8cff 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
+        }
+        
+        .fund-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(88, 166, 255, 0.4);
+        }
+        
+        .fund-button:active {
+            transform: translateY(0);
+        }
+        
+        .disclaimer {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 48px;
+        }
+        
+        .disclaimer h3 {
+            color: #f85149;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        
+        .disclaimer p {
+            color: #8b949e;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .backers-section {
+            margin-top: 48px;
+            text-align: center;
+        }
+        
+        .backers-title {
+            font-size: 24px;
+            margin-bottom: 24px;
+            color: #f0f6fc;
+        }
+        
+        .backer-avatars {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: -12px;
+        }
+        
+        .backer-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 3px solid #0d1117;
+            background: linear-gradient(135deg, #58a6ff 0%, #bc8cff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: white;
+            z-index: 1;
+        }
+        
+        .milestone-banner {
+            background: linear-gradient(135deg, #1f6feb 0%, #bc8cff 100%);
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+            text-align: center;
+            font-weight: 600;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.9; }
+        }
+        
+        .eta-timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #30363d;
+        }
+        
+        .eta-item {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .eta-amount {
+            font-size: 14px;
+            color: #58a6ff;
+            font-weight: 600;
+        }
+        
+        .eta-time {
+            font-size: 12px;
+            color: #6e7681;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>Fund PRiority</h1>
+            <p class="tagline">Turn GitHub issues into funded priorities. Today.</p>
+            <p class="creator">by <a href="https://github.com/gunta" target="_blank">@gunta</a></p>
+        </div>
+        
+        <div class="milestone-banner">
+            🚀 Goal: Raise $10,000 to build the MVP and launch on GitHub Marketplace
+        </div>
+        
+        <div class="progress-section">
+            <div class="progress-bar">
+                <div class="progress-fill">
+                    <span class="progress-text">$1,250</span>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value">$1,250</div>
+                    <div class="stat-label">Raised</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">$10,000</div>
+                    <div class="stat-label">MVP Goal</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">14</div>
+                    <div class="stat-label">Backers</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">12.5%</div>
+                    <div class="stat-label">Funded</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tiers-grid">
+            <!-- Coffee Tier -->
+            <div class="tier-card">
+                <div class="tier-amount">$5</div>
+                <div class="tier-name">Buy Me a Coffee ☕</div>
+                <div class="tier-description">
+                    Every coffee counts! Your support keeps me coding late into the night.
+                </div>
+                <ul class="tier-features">
+                    <li>Name in supporters list</li>
+                    <li>Good karma</li>
+                    <li>My eternal gratitude</li>
+                </ul>
+                <a href="https://buy.stripe.com/YOUR_LINK_5" class="fund-button">
+                    Support with $5
+                </a>
+            </div>
+            
+            <!-- Pizza Tier -->
+            <div class="tier-card">
+                <div class="tier-amount">$25</div>
+                <div class="tier-name">Pizza Fund 🍕</div>
+                <div class="tier-description">
+                    Fuel a coding session! This keeps me energized for a full day of development.
+                </div>
+                <ul class="tier-features">
+                    <li>Early access to beta</li>
+                    <li>Name in README</li>
+                    <li>Discord supporter role</li>
+                </ul>
+                <a href="https://buy.stripe.com/YOUR_LINK_25" class="fund-button">
+                    Fund with $25
+                </a>
+            </div>
+            
+            <!-- Believer Tier -->
+            <div class="tier-card">
+                <div class="tier-amount">$100</div>
+                <div class="tier-name">Early Believer 🌟</div>
+                <div class="tier-description">
+                    You believe in the vision. I'll seriously consider building this and keep you in the loop.
+                </div>
+                <ul class="tier-features">
+                    <li>Personal thank you email</li>
+                    <li>Input on feature priorities</li>
+                    <li>Beta tester access</li>
+                    <li>1 year Pro account when launched</li>
+                </ul>
+                <a href="https://buy.stripe.com/YOUR_LINK_100" class="fund-button">
+                    Invest $100
+                </a>
+            </div>
+            
+            <!-- PRD Tier -->
+            <div class="tier-card popular">
+                <span class="popular-badge">Most Impact</span>
+                <div class="tier-amount">$500</div>
+                <div class="tier-name">Make It Real 📝</div>
+                <div class="tier-description">
+                    This gets serious. I'll refine the PRD, create detailed specs, and start prototyping.
+                </div>
+                <ul class="tier-features">
+                    <li>Name as founding sponsor</li>
+                    <li>Weekly progress updates</li>
+                    <li>Direct input on architecture</li>
+                    <li>Lifetime Pro account</li>
+                    <li>Priority support forever</li>
+                </ul>
+                <a href="https://buy.stripe.com/YOUR_LINK_500" class="fund-button">
+                    Commit $500
+                </a>
+            </div>
+            
+            <!-- Builder Tier -->
+            <div class="tier-card">
+                <div class="tier-amount">$2,500</div>
+                <div class="tier-name">Ship It Mode 🚢</div>
+                <div class="tier-description">
+                    Let's go! I'll dedicate 2 weeks full-time to build the core functionality.
+                </div>
+                <ul class="tier-features">
+                    <li>Logo on landing page</li>
+                    <li>Custom feature request</li>
+                    <li>Private Slack channel</li>
+                    <li>Enterprise account + 5 seats</li>
+                    <li>Monthly 1-on-1 calls</li>
+                </ul>
+                <a href="https://buy.stripe.com/YOUR_LINK_2500" class="fund-button">
+                    Build with $2,500
+                </a>
+            </div>
+            
+            <!-- MVP Tier -->
+            <div class="tier-card">
+                <div class="tier-amount">$10,000</div>
+                <div class="tier-name">MVP Launcher 🚀</div>
+                <div class="tier-description">
+                    You're making PRiority happen! Full MVP with GitHub App, ready for production.
+                </div>
+                <ul class="tier-features">
+                    <li>"Powered by [Your Name]" badge</li>
+                    <li>Co-founder recognition</li>
+                    <li>Revenue share (1% lifetime)</li>
+                    <li>Unlimited Enterprise license</li>
+                    <li>Weekly strategy calls</li>
+                    <li>Custom integration support</li>
+                </ul>
+                <a href="https://buy.stripe.com/YOUR_LINK_10000" class="fund-button">
+                    Launch with $10,000
+                </a>
+            </div>
+            
+            <!-- Scale Tier -->
+            <div class="tier-card">
+                <div class="tier-amount">$25,000</div>
+                <div class="tier-name">Scale Master 📈</div>
+                <div class="tier-description">
+                    3 months full-time. Production-ready with agent AI, multi-provider support, and enterprise features.
+                </div>
+                <ul class="tier-features">
+                    <li>Advisory board position</li>
+                    <li>Revenue share (2.5% lifetime)</li>
+                    <li>White-label option</li>
+                    <li>Priority feature development</li>
+                    <li>On-premise deployment</li>
+                    <li>Dedicated support engineer</li>
+                </ul>
+                <a href="https://buy.stripe.com/YOUR_LINK_25000" class="fund-button">
+                    Scale with $25,000
+                </a>
+            </div>
+            
+            <!-- Unicorn Tier -->
+            <div class="tier-card">
+                <div class="tier-amount">$50,000</div>
+                <div class="tier-name">Unicorn Maker 🦄</div>
+                <div class="tier-description">
+                    6 months commitment. Full platform with marketplace, analytics, and go-to-market execution.
+                </div>
+                <ul class="tier-features">
+                    <li>Co-founder equity (5%)</li>
+                    <li>Board seat</li>
+                    <li>Full IP co-ownership</li>
+                    <li>Custom fork maintained</li>
+                    <li>Dedicated team of 2</li>
+                    <li>Launch campaign management</li>
+                </ul>
+                <a href="https://buy.stripe.com/YOUR_LINK_50000" class="fund-button">
+                    Transform with $50,000
+                </a>
+            </div>
+        </div>
+        
+        <div class="eta-timeline">
+            <div class="eta-item">
+                <div class="eta-amount">$1,000</div>
+                <div class="eta-time">Prototype in 1 week</div>
+            </div>
+            <div class="eta-item">
+                <div class="eta-amount">$5,000</div>
+                <div class="eta-time">Alpha in 3 weeks</div>
+            </div>
+            <div class="eta-item">
+                <div class="eta-amount">$10,000</div>
+                <div class="eta-time">Beta in 6 weeks</div>
+            </div>
+            <div class="eta-item">
+                <div class="eta-amount">$25,000</div>
+                <div class="eta-time">Launch in 12 weeks</div>
+            </div>
+        </div>
+        
+        <div class="disclaimer">
+            <h3>⚠️ Important Notice</h3>
+            <p>
+                This is a crowdfunding campaign for open-source software development. By contributing, you're supporting the development of PRiority but not purchasing a finished product. Development timelines are estimates based on funding levels. All contributions are processed through Stripe and are non-refundable once development begins. The project will be open-sourced under MIT license. Enterprise features may be offered under a dual license model. Your support directly determines how quickly and comprehensively PRiority gets built.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

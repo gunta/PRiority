@@ -9,13 +9,21 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^4.3.0",
     "@tailwindcss/vite": "^4.1.12",
     "astro": "^5.13.3",
     "framer-motion": "^12.23.12",
-    "gsap": "^3.13.0"
+    "gsap": "^3.13.0",
+    "lucide-react": "^0.541.0",
+    "motion-react": "^0.15.0-alpha.1",
+    "ogl": "^1.0.11",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.2",
+    "@types/react": "^19.1.11",
+    "@types/react-dom": "^19.1.7",
     "tailwindcss": "^4.1.12"
   }
 }

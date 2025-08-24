@@ -1,0 +1,805 @@
+---
+// Crowdfunding Campaign Section
+---
+
+<section class="crowdfunding-section">
+  <div class="container">
+    <!-- Hero -->
+    <div class="hero">
+      <h1>Fund PRiority</h1>
+      <p class="tagline">Turn GitHub issues into funded priorities. Today.</p>
+      <p class="creator">by <a href="https://github.com/gunta" target="_blank">@gunta</a></p>
+    </div>
+    
+    <div class="milestone-banner">
+      <svg class="rocket-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+        <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+      </svg>
+      Goal: Raise $10,000 to build the MVP and launch on GitHub Marketplace
+    </div>
+    
+    <div class="tiers-grid">
+      <!-- Coffee Tier - Warm & Friendly -->
+      <div class="tier-card coffee">
+        <div class="tier-icon-container coffee">
+          <svg class="tier-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+            <line x1="6" x2="6" y1="2" y2="4"/>
+            <line x1="10" x2="10" y1="2" y2="4"/>
+            <line x1="14" x2="14" y1="2" y2="4"/>
+          </svg>
+        </div>
+        <div class="tier-amount coffee">$5</div>
+        <div class="tier-name">Buy Me a Coffee</div>
+        <div class="tier-description">
+          Every coffee counts! Your support keeps me coding late into the night.
+        </div>
+        <ul class="tier-features">
+          <li>Name in supporters list</li>
+          <li>Good karma</li>
+          <li>My eternal gratitude</li>
+        </ul>
+        <a href="https://buy.stripe.com/eVqdR9gEUbVacwB1eh5Rm01" class="fund-button coffee" target="_blank">
+          Support with $5
+        </a>
+      </div>
+      
+      <!-- Pizza Tier - Fun & Energetic -->
+      <div class="tier-card pizza">
+        <div class="tier-icon-container pizza">
+          <svg class="tier-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 11h.01"/>
+            <path d="M11 15h.01"/>
+            <path d="M16 16h.01"/>
+            <path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/>
+            <path d="M5.71 17.11a17.04 17.04 0 0 1 11.4-11.4"/>
+          </svg>
+        </div>
+        <div class="tier-amount pizza">$25</div>
+        <div class="tier-name">Pizza Fund</div>
+        <div class="tier-description">
+          Fuel a coding session! This keeps me energized for a full day of development.
+        </div>
+        <ul class="tier-features">
+          <li>Early access to beta</li>
+          <li>Name in README</li>
+          <li>Discord supporter role</li>
+        </ul>
+        <a href="https://buy.stripe.com/5kQaEXcoE2kAeEJcWZ5Rm02" class="fund-button pizza" target="_blank">
+          Fund with $25
+        </a>
+      </div>
+      
+      <!-- Believer Tier - Premium Blue -->
+      <div class="tier-card believer">
+        <div class="tier-icon-container believer">
+          <svg class="tier-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+          </svg>
+        </div>
+        <div class="tier-amount believer">$100</div>
+        <div class="tier-name">Early Believer</div>
+        <div class="tier-description">
+          You believe in the vision. I'll seriously consider building this and keep you in the loop.
+        </div>
+        <ul class="tier-features">
+          <li>Personal thank you email</li>
+          <li>Input on feature priorities</li>
+          <li>Beta tester access</li>
+          <li>1 year Pro account when launched</li>
+        </ul>
+        <a href="https://buy.stripe.com/bJebJ188o3oE2W10ad5Rm03" class="fund-button believer" target="_blank">
+          Invest $100
+        </a>
+      </div>
+      
+      <!-- PRD Tier - Elite Purple -->
+      <div class="tier-card prd popular">
+        <span class="popular-badge">Most Impact</span>
+        <div class="tier-icon-container prd">
+          <svg class="tier-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+            <polyline points="14,2 14,8 20,8"/>
+            <line x1="16" x2="8" y1="13" y2="13"/>
+            <line x1="16" x2="8" y1="17" y2="17"/>
+            <polyline points="10,9 9,9 8,9"/>
+          </svg>
+        </div>
+        <div class="tier-amount prd">$500</div>
+        <div class="tier-name">Make It Real</div>
+        <div class="tier-description">
+          This gets serious. I'll refine the PRD, create detailed specs, and start prototyping.
+        </div>
+        <ul class="tier-features">
+          <li>Name as founding sponsor</li>
+          <li>Weekly progress updates</li>
+          <li>Direct input on architecture</li>
+          <li>Lifetime Pro account</li>
+          <li>Priority support forever</li>
+        </ul>
+        <a href="https://buy.stripe.com/dRm6oH9cs6AQeEJ7CF5Rm05" class="fund-button prd" target="_blank">
+          Commit $500
+        </a>
+      </div>
+      
+      <!-- Builder Tier - Professional Gold -->
+      <div class="tier-card builder">
+        <div class="tier-icon-container builder">
+          <svg class="tier-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="16" height="20" x="4" y="2" rx="2" ry="2"/>
+            <path d="M9 22v-4h6v4"/>
+            <path d="M8 6h.01"/>
+            <path d="M16 6h.01"/>
+            <path d="M12 6h.01"/>
+            <path d="M12 10h.01"/>
+            <path d="M12 14h.01"/>
+            <path d="M16 10h.01"/>
+            <path d="M16 14h.01"/>
+            <path d="M8 10h.01"/>
+            <path d="M8 14h.01"/>
+          </svg>
+        </div>
+        <div class="tier-amount builder">$2,500</div>
+        <div class="tier-name">Ship It Mode</div>
+        <div class="tier-description">
+          Let's go! I'll dedicate 2 weeks full-time to build the core functionality.
+        </div>
+        <ul class="tier-features">
+          <li>Logo on landing page</li>
+          <li>Custom feature request</li>
+          <li>Private Slack channel</li>
+          <li>Enterprise account + 5 seats</li>
+          <li>Monthly 1-on-1 calls</li>
+        </ul>
+        <a href="https://buy.stripe.com/7sY7sLagwaR69kp8GJ5Rm04" class="fund-button builder" target="_blank">
+          Build with $2,500
+        </a>
+      </div>
+      
+      <!-- MVP Tier - Executive Platinum -->
+      <div class="tier-card mvp">
+        <div class="tier-icon-container mvp">
+          <svg class="tier-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+          </svg>
+        </div>
+        <div class="tier-amount mvp">$10,000</div>
+        <div class="tier-name">MVP Launcher</div>
+        <div class="tier-description">
+          You're making PRiority happen! Full MVP with GitHub App, ready for production.
+        </div>
+        <ul class="tier-features">
+          <li>"Powered by [Your Name]" badge</li>
+          <li>Co-founder recognition</li>
+          <li>Revenue share (1% lifetime)</li>
+          <li>Unlimited Enterprise license</li>
+          <li>Weekly strategy calls</li>
+          <li>Custom integration support</li>
+        </ul>
+        <a href="https://buy.stripe.com/5kQ14nagw6AQbsxe135Rm07" class="fund-button mvp" target="_blank">
+          Launch with $10,000
+        </a>
+      </div>
+      
+      <!-- Scale Tier - Diamond Elite -->
+      <div class="tier-card scale">
+        <div class="tier-icon-container scale">
+          <svg class="tier-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 20a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2"/>
+            <path d="M12 18h.01"/>
+            <path d="M17.5 5A2.5 2.5 0 0 1 15 7.5A2.5 2.5 0 0 1 12.5 5A2.5 2.5 0 0 1 15 2.5A2.5 2.5 0 0 1 17.5 5z"/>
+            <path d="M8 14s-5 0-5-5 5-5 5-5"/>
+            <path d="M16 14s5 0 5-5-5-5-5-5"/>
+          </svg>
+        </div>
+        <div class="tier-amount scale">$25,000</div>
+        <div class="tier-name">Scale Master</div>
+        <div class="tier-description">
+          3 months full-time. Production-ready with agent AI, multi-provider support, and enterprise features.
+        </div>
+        <ul class="tier-features">
+          <li>Advisory board position</li>
+          <li>Revenue share (2.5% lifetime)</li>
+          <li>White-label option</li>
+          <li>Priority feature development</li>
+          <li>On-premise deployment</li>
+          <li>Dedicated support engineer</li>
+        </ul>
+        <a href="https://buy.stripe.com/fZu8wP1K04sIbsx3mp5Rm09" class="fund-button scale" target="_blank">
+          Scale with $25,000
+        </a>
+      </div>
+      
+      <!-- Unicorn Tier - Ultra Luxury -->
+      <div class="tier-card unicorn">
+        <div class="tier-icon-container unicorn">
+          <svg class="tier-icon" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+            <path d="M4 22h16"/>
+            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+            <circle cx="12" cy="12" r="3"/>
+            <path d="m12 2 1 7-4-7 3 7"/>
+          </svg>
+        </div>
+        <div class="tier-amount unicorn">$50,000</div>
+        <div class="tier-name">Unicorn Maker</div>
+        <div class="tier-description">
+          6 months commitment. Full platform with marketplace, analytics, and go-to-market execution.
+        </div>
+        <ul class="tier-features">
+          <li>Co-founder equity (5%)</li>
+          <li>Board seat</li>
+          <li>Full IP co-ownership</li>
+          <li>Custom fork maintained</li>
+          <li>Dedicated team</li>
+          <li>Launch campaign management</li>
+        </ul>
+        <a href="https://buy.stripe.com/8x25kDewM8IY4050ad5Rm08" class="fund-button unicorn" target="_blank">
+          Transform with $50,000
+        </a>
+      </div>
+    </div>
+    
+    <div class="eta-timeline">
+      <div class="eta-item">
+        <div class="eta-amount">$1,000</div>
+        <div class="eta-time">Prototype in 1 week</div>
+      </div>
+      <div class="eta-item">
+        <div class="eta-amount">$5,000</div>
+        <div class="eta-time">Alpha in 3 weeks</div>
+      </div>
+      <div class="eta-item">
+        <div class="eta-amount">$10,000</div>
+        <div class="eta-time">Beta in 6 weeks</div>
+      </div>
+      <div class="eta-item">
+        <div class="eta-amount">$25,000</div>
+        <div class="eta-time">Launch in 12 weeks</div>
+      </div>
+    </div>
+    
+    <div class="disclaimer">
+      <h3>⚠️ Important Notice</h3>
+      <p>
+        This is a crowdfunding campaign for open-source software development. By contributing, you're supporting the development of PRiority but not purchasing a finished product. Development timelines are estimates based on funding levels. All contributions are processed through Stripe and are non-refundable. The project will be open-sourced under MIT license. Enterprise features may be offered under a dual license model. Your support directly determines how quickly and comprehensively PRiority gets built.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .crowdfunding-section {
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+    color: #c9d1d9;
+    padding: 40px 20px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  h1 {
+    font-size: 56px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #58a6ff 0%, #bc8cff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .tagline {
+    font-size: 24px;
+    color: #8b949e;
+    margin-bottom: 16px;
+  }
+
+  .creator {
+    font-size: 18px;
+    color: #58a6ff;
+  }
+
+  .creator a {
+    color: #58a6ff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .creator a:hover {
+    text-decoration: underline;
+  }
+
+  .milestone-banner {
+    background: linear-gradient(135deg, #1f6feb 0%, #3b82f6 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .rocket-icon {
+    flex-shrink: 0;
+    opacity: 0.9;
+  }
+
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+
+  .tier-card {
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(71, 85, 105, 0.3);
+  }
+
+  /* Coffee Tier - Professional Brown */
+  .tier-card.coffee {
+    border-color: rgba(217, 119, 6, 0.4);
+  }
+
+  .tier-card.coffee:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: rgba(217, 119, 6, 0.6);
+  }
+
+  .tier-icon-container.coffee {
+    background: rgba(217, 119, 6, 0.1);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+  }
+
+  .tier-amount.coffee {
+    color: #d97706;
+  }
+
+  .fund-button.coffee {
+    background: #d97706;
+    border: 1px solid rgba(217, 119, 6, 0.2);
+  }
+
+  .fund-button.coffee:hover {
+    background: #b45309;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.2);
+  }
+
+  /* Pizza Tier - Professional Orange */
+  .tier-card.pizza {
+    border-color: rgba(249, 115, 22, 0.4);
+  }
+
+  .tier-card.pizza:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: rgba(249, 115, 22, 0.6);
+  }
+
+  .tier-icon-container.pizza {
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+  }
+
+  .tier-amount.pizza {
+    color: #f97316;
+  }
+
+  .fund-button.pizza {
+    background: #f97316;
+    border: 1px solid rgba(249, 115, 22, 0.2);
+  }
+
+  .fund-button.pizza:hover {
+    background: #ea580c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.2);
+  }
+
+  /* Believer Tier - Professional Blue */
+  .tier-card.believer {
+    border-color: rgba(59, 130, 246, 0.4);
+  }
+
+  .tier-card.believer:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: rgba(59, 130, 246, 0.6);
+  }
+
+  .tier-icon-container.believer {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+
+  .tier-amount.believer {
+    color: #3b82f6;
+  }
+
+  .fund-button.believer {
+    background: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .fund-button.believer:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  }
+
+  /* PRD Tier - Professional Purple */
+  .tier-card.prd {
+    border-color: rgba(147, 51, 234, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  }
+
+  .tier-card.prd:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    border-color: rgba(147, 51, 234, 0.7);
+  }
+
+  .tier-icon-container.prd {
+    background: rgba(147, 51, 234, 0.1);
+    border: 1px solid rgba(147, 51, 234, 0.3);
+  }
+
+  .tier-amount.prd {
+    color: #9333ea;
+  }
+
+  .fund-button.prd {
+    background: #9333ea;
+    border: 1px solid rgba(147, 51, 234, 0.2);
+  }
+
+  .fund-button.prd:hover {
+    background: #7c3aed;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(147, 51, 234, 0.2);
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -12px;
+    right: 24px;
+    background: #9333ea;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid rgba(147, 51, 234, 0.2);
+  }
+
+  /* Builder Tier - Professional Gold */
+  .tier-card.builder {
+    border-color: rgba(245, 158, 11, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  }
+
+  .tier-card.builder:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    border-color: rgba(245, 158, 11, 0.7);
+  }
+
+  .tier-icon-container.builder {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+  }
+
+  .tier-amount.builder {
+    color: #f59e0b;
+  }
+
+  .fund-button.builder {
+    background: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+  }
+
+  .fund-button.builder:hover {
+    background: #d97706;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+  }
+
+  /* MVP Tier - Executive Gray */
+  .tier-card.mvp {
+    border-color: rgba(107, 114, 128, 0.5);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .tier-card.mvp:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    border-color: rgba(107, 114, 128, 0.7);
+  }
+
+  .tier-icon-container.mvp {
+    background: rgba(107, 114, 128, 0.1);
+    border: 1px solid rgba(107, 114, 128, 0.3);
+  }
+
+  .tier-amount.mvp {
+    color: #6b7280;
+  }
+
+  .fund-button.mvp {
+    background: #6b7280;
+    border: 1px solid rgba(107, 114, 128, 0.2);
+  }
+
+  .fund-button.mvp:hover {
+    background: #4b5563;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(107, 114, 128, 0.2);
+  }
+
+  /* Scale Tier - Professional Cyan */
+  .tier-card.scale {
+    border-color: rgba(6, 182, 212, 0.5);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .tier-card.scale:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    border-color: rgba(6, 182, 212, 0.7);
+  }
+
+  .tier-icon-container.scale {
+    background: rgba(6, 182, 212, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+  }
+
+  .tier-amount.scale {
+    color: #06b6d4;
+  }
+
+  .fund-button.scale {
+    background: #06b6d4;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+  }
+
+  .fund-button.scale:hover {
+    background: #0891b2;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.2);
+  }
+
+  /* Unicorn Tier - Premium Pink */
+  .tier-card.unicorn {
+    border: 2px solid rgba(236, 72, 153, 0.6);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    position: relative;
+  }
+
+  .tier-card.unicorn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+    border-color: rgba(236, 72, 153, 0.8);
+  }
+
+  .tier-icon-container.unicorn {
+    background: rgba(236, 72, 153, 0.1);
+    border: 1px solid rgba(236, 72, 153, 0.3);
+  }
+
+  .tier-amount.unicorn {
+    color: #ec4899;
+  }
+
+  .fund-button.unicorn {
+    background: #ec4899;
+    border: 1px solid rgba(236, 72, 153, 0.2);
+  }
+
+  .fund-button.unicorn:hover {
+    background: #db2777;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.2);
+  }
+
+  /* Common tier styles */
+  .tier-icon-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    backdrop-filter: blur(10px);
+  }
+
+  .tier-icon {
+    flex-shrink: 0;
+  }
+
+  .tier-amount {
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .tier-name {
+    font-size: 24px;
+    font-weight: 600;
+    color: #f0f6fc;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .tier-description {
+    color: #8b949e;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .tier-features {
+    list-style: none;
+    margin-bottom: 32px;
+    padding: 0;
+  }
+
+  .tier-features li {
+    padding: 10px 0;
+    color: #c9d1d9;
+    font-size: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .tier-features li::before {
+    content: "✓";
+    color: #3fb950;
+    font-weight: bold;
+    flex-shrink: 0;
+    font-size: 16px;
+  }
+
+  .fund-button {
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+
+  .eta-timeline {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    padding: 16px;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .eta-item {
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .eta-amount {
+    font-size: 14px;
+    color: #58a6ff;
+    font-weight: 600;
+  }
+
+  .eta-time {
+    font-size: 12px;
+    color: #6e7681;
+  }
+
+  .disclaimer {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+    margin-top: 48px;
+  }
+
+  .disclaimer h3 {
+    color: #f85149;
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+
+  .disclaimer p {
+    color: #8b949e;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .crowdfunding-section {
+      padding: 20px 10px;
+    }
+
+    h1 {
+      font-size: 40px;
+    }
+
+    .tagline {
+      font-size: 18px;
+    }
+
+    .tiers-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .tier-card {
+      padding: 24px;
+    }
+
+    .tier-icon-container {
+      width: 60px;
+      height: 60px;
+    }
+
+    .tier-amount {
+      font-size: 36px;
+    }
+
+    .tier-name {
+      font-size: 20px;
+    }
+
+    .eta-timeline {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .eta-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+</style>

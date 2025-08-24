@@ -1,3 +1,9 @@
 {
-    "folder-color.pathColors": []
+    "folder-color.pathColors": [],
+    "claude.mcpServers": {
+        "react-bits-mcp": {
+            "command": "npx",
+            "args": ["mcp-remote", "https://react-bits-mcp.davidhzdev.workers.dev/sse"]
+        }
+    }
 }

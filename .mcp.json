@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "react-bits-mcp": {
+      "type": "sse",
+      "url": "https://react-bits-mcp.davidhzdev.workers.dev/sse"
+    }
+  }
+}
