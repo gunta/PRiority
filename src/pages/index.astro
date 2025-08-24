@@ -1,0 +1,152 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import CTA from '../components/CTA.astro';
+import '../styles/global.css';
+---
+
+<Layout title="PRiority - Zero-Friction GitHub Issue Funding">
+	<div class="relative overflow-hidden">
+		<!-- Animated background -->
+		<div class="fixed inset-0 mesh-gradient opacity-30"></div>
+		<div class="fixed inset-0">
+			<div class="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float"></div>
+			<div class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float" style="animation-delay: 2s;"></div>
+		</div>
+
+		<!-- Navigation -->
+		<nav class="relative z-10 px-6 py-6 lg:px-12">
+			<div class="max-w-7xl mx-auto flex items-center justify-between">
+				<div class="flex items-center space-x-2">
+					<svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+					</svg>
+					<span class="text-2xl font-bold gradient-text">PRiority</span>
+				</div>
+				<div class="flex items-center space-x-8">
+					<a href="#how-it-works" class="hidden md:block text-gray-300 hover:text-white transition">How it Works</a>
+					<a href="#features" class="hidden md:block text-gray-300 hover:text-white transition">Features</a>
+					<a href="#cta" class="glow-button">
+						Join the Revolution
+					</a>
+				</div>
+			</div>
+		</nav>
+
+		<Hero />
+
+		<!-- How It Works -->
+		<section id="how-it-works" class="relative z-10 px-6 py-20 lg:px-12">
+			<div class="max-w-7xl mx-auto">
+				<div class="text-center mb-16">
+					<h2 class="text-4xl md:text-5xl font-bold mb-4">
+						<span class="gradient-text">Zero Friction.</span> Maximum Impact.
+					</h2>
+					<p class="text-xl text-gray-400">From issue to funded to shipped in minutes, not months.</p>
+				</div>
+
+				<div class="grid md:grid-cols-3 gap-8">
+					<div class="feature-card">
+						<div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6">
+							<svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold mb-3">AI-Powered Estimation</h3>
+						<p class="text-gray-400 mb-4">Claude analyzes your issue complexity, codebase structure, and historical data to provide accurate time and cost estimates.</p>
+						<div class="code-block">
+							<span class="text-green-400">$</span> <span class="text-gray-300">/estimate</span><br />
+							<span class="text-gray-500">→ 8 hours (±2h)</span><br />
+							<span class="text-gray-500">→ $800 suggested</span><br />
+							<span class="text-gray-500">→ 85% confidence</span>
+						</div>
+					</div>
+
+					<div class="feature-card">
+						<div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-6">
+							<svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold mb-3">Instant Funding</h3>
+						<p class="text-gray-400 mb-4">One-click payments through Stripe, Polar, or GitHub Sponsors. No accounts, no friction, just value exchange.</p>
+						<div class="code-block">
+							<span class="text-green-400">$</span> <span class="text-gray-300">/fund 500</span><br />
+							<span class="text-gray-500">→ Payment link ready</span><br />
+							<span class="text-gray-500">→ Click to fund</span><br />
+							<span class="text-gray-500">→ Work starts now!</span>
+						</div>
+					</div>
+
+					<div class="feature-card">
+						<div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-6">
+							<svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold mb-3">Autonomous Execution</h3>
+						<p class="text-gray-400 mb-4">AI agents can implement, test, and submit PRs automatically. You review, we deliver.</p>
+						<div class="code-block">
+							<span class="text-green-400">🤖</span> <span class="text-gray-300">Agent starting...</span><br />
+							<span class="text-gray-500">→ Analyzing codebase</span><br />
+							<span class="text-gray-500">→ Writing solution</span><br />
+							<span class="text-gray-500">→ PR #234 opened</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<Features />
+
+		<!-- Vision Section -->
+		<section class="relative z-10 px-6 py-20 lg:px-12">
+			<div class="max-w-7xl mx-auto">
+				<div class="glass-card p-12 text-center">
+					<h2 class="text-3xl md:text-4xl font-bold mb-6">
+						The Vision: <span class="gradient-text">Sustainable Open Source</span>
+					</h2>
+					<p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+						Imagine a world where every critical bug gets fixed in hours, not months. 
+						Where maintainers earn fair wages for their expertise. Where enterprises can 
+						accelerate development without the overhead of hiring.
+					</p>
+					<div class="grid md:grid-cols-3 gap-8 text-left">
+						<div>
+							<div class="text-3xl font-bold gradient-text mb-2">90%</div>
+							<p class="text-gray-400">of companies use open source</p>
+						</div>
+						<div>
+							<div class="text-3xl font-bold gradient-text mb-2">0.02%</div>
+							<p class="text-gray-400">contribute financially</p>
+						</div>
+						<div>
+							<div class="text-3xl font-bold gradient-text mb-2">$8.8T</div>
+							<p class="text-gray-400">in unpaid labor value</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<CTA />
+
+		<!-- Footer -->
+		<footer class="relative z-10 px-6 py-12 lg:px-12 border-t border-gray-800">
+			<div class="max-w-7xl mx-auto">
+				<div class="flex flex-col md:flex-row justify-between items-center">
+					<div class="flex items-center space-x-2 mb-4 md:mb-0">
+						<svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+						</svg>
+						<span class="text-xl font-bold gradient-text">PRiority</span>
+					</div>
+					<p class="text-gray-400 text-sm">
+						© 2025 PRiority. The future of open source is funded.
+					</p>
+				</div>
+			</div>
+		</footer>
+	</div>
+</Layout>
