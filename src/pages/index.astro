@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
+import GitHubDemo from '../components/GitHubDemo.astro';
+import TechnicalDetails from '../components/TechnicalDetails.astro';
 import Features from '../components/Features.astro';
 import CTA from '../components/CTA.astro';
 import '../styles/global.css';
@@ -35,6 +37,8 @@ import '../styles/global.css';
 		</nav>
 
 		<Hero />
+
+		<GitHubDemo />
 
 		<!-- How It Works -->
 		<section id="how-it-works" class="relative z-10 px-6 py-20 lg:px-12">
@@ -100,6 +104,8 @@ import '../styles/global.css';
 
 		<Features />
 
+		<TechnicalDetails />
+
 		<!-- Vision Section -->
 		<section class="relative z-10 px-6 py-20 lg:px-12">
 			<div class="max-w-7xl mx-auto">
@@ -140,11 +146,11 @@ import '../styles/global.css';
 						<svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
 						</svg>
-						<span class="text-xl font-bold gradient-text">PRiority</span>
-					</div>
-					<p class="text-gray-400 text-sm">
-						© 2025 PRiority. The future of open source is funded.
-					</p>
+											<span class="text-xl font-bold gradient-text">PRiority</span>
+				</div>
+				<p class="text-gray-400 text-sm">
+					© 2025 PRiority by <a href="https://x.com/gunta85" class="text-blue-400 hover:underline">@gunta85</a>. The future of open source is funded.
+				</p>
 				</div>
 			</div>
 		</footer>
