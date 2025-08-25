@@ -1,0 +1,36 @@
+---
+export interface Props {
+	text: string;
+	class?: string;
+	as?: 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
+}
+
+const { text, class: className = '', as: Tag = 'span' } = Astro.props;
+---
+
+<Tag class={`gradient-text ${className}`}>
+	{text}
+</Tag>
+
+<style>
+	.gradient-text {
+		background: linear-gradient(
+			135deg, 
+			#66b3ff,
+			#cc99ff,
+			#ff66cc
+		);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		filter: brightness(1.2) contrast(1.1);
+		animation: gradient-flow 6s ease infinite;
+		background-size: 300% 300%;
+		display: inline-block;
+	}
+	
+	@keyframes gradient-flow {
+		0%, 100% { background-position: 0% 50%; }
+		50% { background-position: 100% 50%; }
+	}
+</style>

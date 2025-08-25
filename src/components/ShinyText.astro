@@ -1,0 +1,40 @@
+---
+export interface Props {
+	text: string;
+	class?: string;
+	as?: 'span' | 'p' | 'div';
+}
+
+const { text, class: className = '', as: Tag = 'p' } = Astro.props;
+---
+
+<Tag class={`shiny-text ${className}`}>
+	{text}
+</Tag>
+
+<style>
+	.shiny-text {
+		color: #e4e4e7;
+		background: linear-gradient(
+			110deg,
+			transparent 25%,
+			rgba(255, 255, 255, 0.7) 30%,
+			transparent 35%
+		);
+		background-size: 200% 100%;
+		background-clip: text;
+		-webkit-background-clip: text;
+		animation: shimmer 3s ease-in-out infinite;
+		position: relative;
+		display: inline-block;
+	}
+
+	@keyframes shimmer {
+		0% {
+			background-position: -100% 0;
+		}
+		100% {
+			background-position: 100% 0;
+		}
+	}
+</style>

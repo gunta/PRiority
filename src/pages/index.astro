@@ -5,19 +5,36 @@ import GitHubDemo from '../components/GitHubDemo.astro';
 import TechnicalDetails from '../components/TechnicalDetails.astro';
 import MagicBento from '../components/MagicBento.astro';
 import SpotlightCard from '../components/SpotlightCard.astro';
-import TiltedCard from '../components/TiltedCard.astro';
 import CTA from '../components/CTA.astro';
 import CrowdfundingCampaign from '../components/CrowdfundingCampaign.astro';
-import LightRays from '../Backgrounds/LightRays/LightRays.tsx';
+import TechLogos from '../components/TechLogos.tsx';
 import BlobCursor from '../Animations/BlobCursor/BlobCursor.tsx';
 import Particles from '../Backgrounds/Particles/Particles.tsx';
 import Beams from '../Backgrounds/Beams/Beams.tsx';
+import LightRays from '../Backgrounds/LightRays/LightRays.tsx';
 import FadeContent from '../Animations/FadeContent/FadeContent.tsx';
 import '../styles/global.css';
 ---
 
 <Layout title="PRiority - Zero-Friction GitHub Issue Funding">
 	<div class="relative overflow-hidden">
+		<!-- Light Rays at the very top -->
+		<div class="fixed inset-0 pointer-events-none z-[1]">
+			<LightRays 
+				client:load 
+				raysOrigin="top-center"
+				raysColor="#66b3ff"
+				raysSpeed={0.4}
+				lightSpread={3.2}
+				rayLength={5}
+				pulsating={true}
+				fadeDistance={2.7}
+				saturation={2.0}
+				followMouse={true}
+				className="w-full h-full opacity-80"
+			/>
+		</div>
+
 		<!-- Animated background -->
 		<div class="fixed inset-0 mesh-gradient opacity-30 z-[-20]"></div>
 		<div class="fixed inset-0 z-[-15]">
@@ -25,36 +42,21 @@ import '../styles/global.css';
 			<div class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float" style="animation-delay: 2s;"></div>
 		</div>
 
-		<!-- Light Rays Background -->
-		<LightRays 
-			client:load 
-			raysOrigin="top-center"
-			raysColor="#60a5fa"
-			raysSpeed={0.3}
-			lightSpread={1.8}
-			rayLength={2.5}
-			pulsating={false}
-			fadeDistance={1.2}
-			saturation={0.6}
-			followMouse={false}
-			className="fixed top-0 left-0 w-full h-full pointer-events-none z-[-30]"
-		/>
-
 		<!-- Particles Background -->
 		<Particles 
 			client:load
-			particleCount={80}
-			particleSpread={1000}
-			speed={0.02}
-			particleColors={["#60a5fa", "#a78bfa", "#34d399"]}
+			particleCount={120}
+			particleSpread={1200}
+			speed={0.03}
+			particleColors={["#66b3ff", "#cc99ff", "#66ffcc", "#ff66cc"]}
 			moveParticlesOnHover={true}
-			particleHoverFactor={0.3}
+			particleHoverFactor={0.5}
 			alphaParticles={true}
-			particleBaseSize={2}
-			sizeRandomness={3}
-			cameraDistance={300}
+			particleBaseSize={3}
+			sizeRandomness={4}
+			cameraDistance={400}
 			disableRotation={false}
-			className="fixed top-0 left-0 w-full h-full pointer-events-none z-[-5]"
+			className="fixed top-0 left-0 w-full h-full pointer-events-none z-[-5] mix-blend-screen"
 		/>
 
 		<!-- Interactive Cursor -->
@@ -74,14 +76,15 @@ import '../styles/global.css';
 		/>
 
 		<!-- Navigation -->
-		<nav class="relative z-50 px-6 py-6 lg:px-12">
+		<nav class="fixed top-0 left-0 right-0 z-[100] px-6 py-4 lg:px-12 bg-black/50 backdrop-blur-md border-b border-gray-800/50">
 			<div class="max-w-7xl mx-auto flex items-center justify-between">
 				<div class="flex items-center space-x-2">
-					<img src="/PRiority/logo.png" alt="PRiority Logo" style="height: 4rem; width: auto; object-fit: contain;" />
+					<img src="/PRiority/logo.png" alt="PRiority Logo" class="h-12 w-auto object-contain" />
 				</div>
 				<div class="flex items-center space-x-8">
 					<a href="#how-it-works" class="hidden md:block text-gray-300 hover:text-white transition">How it Works</a>
-					<a href="#features" class="hidden md:block text-gray-300 hover:text-white transition">Features</a>
+					<a href="#magic-bento" class="hidden md:block text-gray-300 hover:text-white transition">Features</a>
+					<a href="#fund" class="hidden md:block text-gray-300 hover:text-white transition font-semibold">💰 Back It!</a>
 					<a href="#cta" class="glow-button">
 						Join the Revolution
 					</a>
@@ -89,8 +92,13 @@ import '../styles/global.css';
 			</div>
 		</nav>
 
-		<div class="relative z-10">
+
+		<main class="relative z-20 pt-24">
 			<Hero />
+		</main>
+
+		<div class="relative z-10">
+			<TechLogos client:load />
 		</div>
 
 		<div class="relative z-10">
@@ -173,7 +181,7 @@ import '../styles/global.css';
 			</div>
 		</section>
 
-		<div class="relative z-10">
+		<div id="magic-bento" class="relative z-10">
 			<MagicBento />
 		</div>
 
@@ -472,8 +480,12 @@ import '../styles/global.css';
 		</div>
 
 		<!-- Footer -->
-		<footer class="relative z-10 px-6 py-12 lg:px-12 border-t border-gray-800">
-			<div class="max-w-7xl mx-auto">
+		<footer class="relative z-10 px-6 py-12 lg:px-12 backdrop-blur-xl overflow-hidden">
+			<!-- Glass surface effect -->
+			<div class="absolute inset-0 bg-gradient-to-b from-gray-900/10 via-gray-900/30 to-black"></div>
+			<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+			<div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-blue-500/5 to-transparent"></div>
+			<div class="relative max-w-7xl mx-auto">
 				<div class="flex flex-col md:flex-row justify-between items-center">
 					<div class="flex items-center space-x-2 mb-4 md:mb-0">
 						<div class="flex items-center space-x-2">

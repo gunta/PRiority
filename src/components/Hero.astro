@@ -2,28 +2,28 @@
 import TiltedCard from './TiltedCard.astro';
 import FadeContent from '../Animations/FadeContent/FadeContent.tsx';
 import Orb from '../Backgrounds/Orb/Orb.tsx';
+import ShinyText from './ShinyText.astro';
+import GradientText from './GradientText.astro';
 ---
 
 <div class="hero-container">
-	<!-- Background Orb -->
-	<div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+	<!-- Background Orb - positioned around logo -->
+	<div class="absolute inset-x-0 -top-70 h-[700px] flex items-start justify-center pointer-events-none z-[-20] pt-32 scale-150">
 		<Orb 
 			client:load
-			hue={220}
-			hoverIntensity={0.3}
+			hue={260}
+			hoverIntensity={0.5}
 			rotateOnHover={true}
 			forceHoverState={false}
 		/>
 	</div>
 
-	<!-- Logo Section -->
+	<!-- Hero Title -->
 	<FadeContent client:load className="logo-section" delay={200}>
 		<div class="logo-container">
-			<div class="logo-icon">
-				<img src="/PRiority/logo.png" alt="PRiority Logo" />
-			</div>
-			<div class="logo-text">
-				<p class="text-lg md:text-xl text-gray-400 mt-2">AI-Powered GitHub Issue Funding</p>
+			<img src="/PRiority/logo.png" alt="PRiority Logo" class="h-48 md:h-64 w-auto object-contain" />
+			<div class="logo-text -mt-2 mb-12">
+				<ShinyText text="AI-Powered GitHub Issue Funding" class="text-2xl md:text-3xl" />
 			</div>
 		</div>
 	</FadeContent>
@@ -38,7 +38,7 @@ import Orb from '../Backgrounds/Orb/Orb.tsx';
 
 		<!-- CTA Buttons -->
 		<div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-			<a href="#cta" class="glow-button group">
+			<a href="#fund" class="glow-button group">
 				<span>Do you want this to exist?</span>
 				<svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -57,19 +57,19 @@ import Orb from '../Backgrounds/Orb/Orb.tsx';
 	<FadeContent client:load delay={600}>
 		<div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
 			<TiltedCard className="blue text-center">
-				<div class="text-3xl font-bold gradient-text">$0</div>
+				<GradientText text="$0" class="text-3xl font-bold" />
 				<div class="text-gray-400 mt-1">Raised So Far</div>
 			</TiltedCard>
 			<TiltedCard className="purple text-center">
-				<div class="text-3xl font-bold gradient-text">0</div>
+				<GradientText text="0" class="text-3xl font-bold" />
 				<div class="text-gray-400 mt-1">Issues Funded</div>
 			</TiltedCard>
 			<TiltedCard className="green text-center">
-				<div class="text-3xl font-bold gradient-text">∞</div>
+				<GradientText text="∞" class="text-3xl font-bold" />
 				<div class="text-gray-400 mt-1">Potential</div>
 			</TiltedCard>
 			<TiltedCard className="pink text-center">
-				<div class="text-3xl font-bold gradient-text">1</div>
+				<GradientText text="1" class="text-3xl font-bold" />
 				<div class="text-gray-400 mt-1">Dream</div>
 			</TiltedCard>
 		</div>
@@ -81,7 +81,7 @@ import Orb from '../Backgrounds/Orb/Orb.tsx';
 		position: relative;
 		z-index: 20;
 		padding: 0 1.5rem;
-		padding-top: 5rem;
+		padding-top: 2rem;
 		padding-bottom: 5rem;
 		text-align: center;
 	}
@@ -106,12 +106,7 @@ import Orb from '../Backgrounds/Orb/Orb.tsx';
 		justify-content: center;
 	}
 
-	.logo-icon {
-		width: 48rem;
-		height: 12rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+	.hero-title {
 		margin-bottom: 2rem;
 	}
 
@@ -133,20 +128,67 @@ import Orb from '../Backgrounds/Orb/Orb.tsx';
 		border-radius: 0.75rem;
 		font-weight: 600;
 		color: white;
-		transition: all 0.3s ease;
-		transform: scale(1);
-		box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+		transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		transform: scale(1) translateZ(0);
+		box-shadow: 
+			0 0 30px rgba(102, 179, 255, 0.4),
+			inset 0 1px 0 rgba(255, 255, 255, 0.2);
+		backdrop-filter: blur(10px) saturate(1.8);
+		background: linear-gradient(
+			135deg,
+			rgba(77, 159, 255, 0.9),
+			rgba(179, 102, 255, 0.9)
+		);
+		will-change: transform, filter;
+		contain: layout style paint;
 	}
 
 	.glow-button:hover {
-		transform: scale(1.05);
-		box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+		transform: scale(1.05) translateY(-2px) translateZ(0);
+		box-shadow: 
+			0 10px 40px rgba(128, 204, 255, 0.5),
+			0 0 60px rgba(204, 153, 255, 0.4),
+			inset 0 1px 0 rgba(255, 255, 255, 0.3);
+		filter: brightness(1.15) contrast(1.1);
 	}
 
 	.gradient-text {
-		background: linear-gradient(135deg, #60a5fa, #a78bfa);
+		background: linear-gradient(
+			135deg, 
+			#66b3ff,
+			#cc99ff,
+			#ff66cc
+		);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
+		filter: brightness(1.2) contrast(1.1);
+		animation: gradient-flow 6s ease infinite;
+		background-size: 300% 300%;
+	}
+	
+	@keyframes gradient-flow {
+		0%, 100% { background-position: 0% 50%; }
+		50% { background-position: 100% 50%; }
+	}
+	
+	/* Add glow effect to logo */
+	.logo-container img {
+		filter: drop-shadow(0 0 40px rgba(102, 179, 255, 0.4))
+		        drop-shadow(0 0 80px rgba(204, 153, 255, 0.3));
+		animation: logo-pulse 4s ease-in-out infinite;
+	}
+	
+	@keyframes logo-pulse {
+		0%, 100% { 
+			transform: scale(1);
+			filter: drop-shadow(0 0 40px rgba(102, 179, 255, 0.4))
+			        drop-shadow(0 0 80px rgba(204, 153, 255, 0.3));
+		}
+		50% { 
+			transform: scale(1.02);
+			filter: drop-shadow(0 0 60px rgba(102, 179, 255, 0.6))
+			        drop-shadow(0 0 120px rgba(204, 153, 255, 0.4));
+		}
 	}
 </style>
