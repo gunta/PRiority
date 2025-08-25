@@ -3,9 +3,18 @@ export interface Props {
 	title: string;
 	description?: string;
 	image?: string;
+	ogType?: string;
 }
 
-const { title, description = "Zero-friction GitHub issue funding with AI-powered estimation and execution. Pay to prioritize. Estimate with AI. Ship with confidence.", image = "/og-image.png" } = Astro.props;
+const { 
+	title, 
+	description = "Fix GitHub issues in hours, not years. AI estimates complexity, users fund instantly with Stripe, work starts automatically. The future of sustainable open source.", 
+	image = "/PRiority/priority-ogp.jpg",
+	ogType = "website"
+} = Astro.props;
+
+const siteUrl = "https://gunta.github.io/PRiority";
+const fullImageUrl = `${siteUrl}${image.startsWith('/') ? image.slice(1) : image}`;
 ---
 
 <!doctype html>
@@ -20,18 +29,60 @@ const { title, description = "Zero-friction GitHub issue funding with AI-powered
 		<meta name="description" content={description} />
 		
 		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://priority.ai" />
+		<meta property="og:type" content={ogType} />
+		<meta property="og:url" content={siteUrl} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:image" content={image} />
+		<meta property="og:image" content={fullImageUrl} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="PRiority - AI-Powered GitHub Issue Funding Platform" />
+		<meta property="og:site_name" content="PRiority" />
+		<meta property="og:locale" content="en_US" />
 		
 		<!-- X (Twitter) -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content="https://priority.ai" />
-		<meta property="twitter:title" content={title} />
-		<meta property="twitter:description" content={description} />
-		<meta property="twitter:image" content={image} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@gunta85" />
+		<meta name="twitter:creator" content="@gunta85" />
+		<meta name="twitter:url" content={siteUrl} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={fullImageUrl} />
+		<meta name="twitter:image:alt" content="PRiority - AI-Powered GitHub Issue Funding Platform" />
+		
+		<!-- Additional SEO -->
+		<link rel="canonical" href={siteUrl} />
+		<meta name="author" content="Gunther Brunner (@gunta)" />
+		<meta name="keywords" content="GitHub, open source, funding, AI, Claude, GPT-4, Stripe, issue tracking, bounties, developer tools, OSS sustainability" />
+		<meta name="robots" content="index, follow" />
+		<meta name="theme-color" content="#2f81f7" />
+		
+		<!-- LinkedIn -->
+		<meta property="og:image:type" content="image/jpeg" />
+		<meta name="linkedin:owner" content="gunta" />
+		
+		<!-- Schema.org for Google -->
+		<script type="application/ld+json" is:inline>
+		{JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "SoftwareApplication",
+			"name": "PRiority",
+			"description": description,
+			"url": siteUrl,
+			"applicationCategory": "DeveloperApplication",
+			"operatingSystem": "GitHub",
+			"offers": {
+				"@type": "Offer",
+				"price": "0",
+				"priceCurrency": "USD"
+			},
+			"author": {
+				"@type": "Person",
+				"name": "Gunther Brunner",
+				"url": "https://github.com/gunta"
+			}
+		})}
+		</script>
 		
 		<!-- Fonts -->
 			<link rel="preconnect" href="https://fonts.googleapis.com">
