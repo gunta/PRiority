@@ -1,4 +1,6 @@
 ---
+import AnimatedCodeEditor from './AnimatedCodeEditor.tsx';
+import InteractiveCommands from './InteractiveCommands.tsx';
 ---
 
 <section class="relative z-10 px-6 py-20 lg:px-12">
@@ -16,15 +18,15 @@
 			
 			<div class="grid md:grid-cols-3 gap-6">
 				<!-- Step 1 -->
-				<div class="feature-card">
+				<div class="feature-card group hover:scale-105 transition-all duration-300">
 					<div class="flex items-center gap-3 mb-4">
-						<div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+						<div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center group-hover:animate-pulse">
 							<span class="text-white font-bold">1</span>
 						</div>
 						<h4 class="text-lg font-bold">Add the Workflow</h4>
 					</div>
 					<p class="text-gray-400 mb-4 text-sm">Copy one file to your repo. That's it.</p>
-					<div class="code-block text-xs">
+					<div class="code-block text-xs group-hover:border-blue-500/50 transition-colors">
 						<span class="text-green-400">$</span> <span class="text-gray-300">curl -O https://priority.ai/install.yml</span><br/>
 						<span class="text-green-400">$</span> <span class="text-gray-300">mv install.yml .github/workflows/priority.yml</span><br/>
 						<span class="text-green-400">$</span> <span class="text-gray-300">git add . && git commit -m "Enable PRiority"</span><br/>
@@ -33,15 +35,15 @@
 				</div>
 
 				<!-- Step 2 -->
-				<div class="feature-card">
+				<div class="feature-card group hover:scale-105 transition-all duration-300">
 					<div class="flex items-center gap-3 mb-4">
-						<div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center">
+						<div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center group-hover:animate-pulse">
 							<span class="text-white font-bold">2</span>
 						</div>
 						<h4 class="text-lg font-bold">Add Payment Secret</h4>
 					</div>
 					<p class="text-gray-400 mb-4 text-sm">One-time setup via GitHub UI.</p>
-					<div class="code-block text-xs">
+					<div class="code-block text-xs group-hover:border-purple-500/50 transition-colors">
 						<span class="text-gray-500"># Go to Settings → Secrets → Actions</span><br/>
 						<span class="text-gray-500"># Add new secret:</span><br/>
 						<span class="text-yellow-400">Name:</span> STRIPE_RESTRICTED_KEY<br/>
@@ -53,15 +55,15 @@
 				</div>
 
 				<!-- Step 3 -->
-				<div class="feature-card">
+				<div class="feature-card group hover:scale-105 transition-all duration-300">
 					<div class="flex items-center gap-3 mb-4">
-						<div class="w-10 h-10 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center">
+						<div class="w-10 h-10 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center group-hover:animate-pulse">
 							<span class="text-white font-bold">3</span>
 						</div>
 						<h4 class="text-lg font-bold">Start Earning</h4>
 					</div>
 					<p class="text-gray-400 mb-4 text-sm">Issues now show estimates & accept funding!</p>
-					<div class="code-block text-xs">
+					<div class="code-block text-xs group-hover:border-green-500/50 transition-colors">
 						<span class="text-gray-500"># On any issue:</span><br/>
 						<span class="text-blue-400">@priority-bot</span> <span class="text-gray-300">automatically comments</span><br/>
 						<span class="text-gray-500">→ Shows effort estimate</span><br/>
@@ -73,253 +75,49 @@
 			</div>
 		</div>
 
-		<!-- YAML Configuration -->
+		<!-- Interactive GitHub Action Editor -->
 		<div class="mb-16">
-			<h3 class="text-2xl font-bold mb-8">⚙️ The Magic: One GitHub Action</h3>
+			<h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+				<span class="text-3xl animate-pulse">⚙️</span>
+				<span>The Magic: One GitHub Action</span>
+				<span class="text-sm text-gray-400 font-normal"></span>
+			</h3>
 			
-			<div class="glass-card p-6">
-				<div class="flex items-center justify-between mb-4">
-					<div class="flex items-center gap-2">
-						<span class="text-sm text-gray-400">.github/workflows/</span>
-						<span class="font-mono font-semibold">priority.yml</span>
-					</div>
-					<button class="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded hover:bg-gray-700 transition">
-						Copy
-					</button>
-				</div>
-				
-				<div class="code-block text-xs overflow-x-auto text-gray-300">
-					<pre>name: PRiority - AI-Powered Issue Funding
-
-<span class="text-purple-400">on:</span>
-  <span class="text-blue-400">issues:</span>
-    <span class="text-blue-400">types:</span> [opened, edited, labeled]
-  <span class="text-blue-400">issue_comment:</span>
-    <span class="text-blue-400">types:</span> [created]
-  <span class="text-blue-400">pull_request:</span>
-    <span class="text-blue-400">types:</span> [opened, closed]
-  <span class="text-blue-400">schedule:</span>
-    - <span class="text-blue-400">cron:</span> <span class="text-green-400">'0 */6 * * *'</span>  <span class="text-gray-500"># Check for refunds</span>
-
-<span class="text-purple-400">jobs:</span>
-  <span class="text-blue-400">estimate:</span>
-    <span class="text-purple-400">name:</span> Generate AI Estimate
-    <span class="text-purple-400">if:</span> |
-      github.event_name == 'issues' && 
-      !contains(github.event.issue.labels.*.name, 'priority:estimated')
-    <span class="text-purple-400">runs-on:</span> ubuntu-latest
-    <span class="text-purple-400">steps:</span>
-      - <span class="text-purple-400">uses:</span> priority-ai/estimate@v1
-        <span class="text-purple-400">with:</span>
-          <span class="text-blue-400">issue-number:</span> <span class="text-green-400">${'${{github.event.issue.number}}'}</span>
-          <span class="text-blue-400">model:</span> claude-3-opus  <span class="text-gray-500"># or gpt-4, llama-3</span>
-        <span class="text-purple-400">env:</span>
-          <span class="text-blue-400">ANTHROPIC_API_KEY:</span> <span class="text-green-400">${'${{'} secrets.ANTHROPIC_API_KEY ${'}}'}</span>
-
-  <span class="text-blue-400">process-payment:</span>
-    <span class="text-purple-400">name:</span> Handle Payment
-    <span class="text-purple-400">if:</span> contains(github.event.comment.body, '/fund')
-    <span class="text-purple-400">runs-on:</span> ubuntu-latest
-    <span class="text-purple-400">steps:</span>
-      - <span class="text-purple-400">uses:</span> priority-ai/create-payment@v1
-        <span class="text-purple-400">with:</span>
-          <span class="text-blue-400">provider:</span> <span class="text-green-400">${'${{'} env.PAYMENT_PROVIDER ${'}}'}</span>  <span class="text-gray-500"># stripe, sponsors</span>
-          <span class="text-blue-400">amount:</span> ${'${{'} env.FUNDING_AMOUNT ${'}}'}
-        <span class="text-purple-400">env:</span>
-          <span class="text-blue-400">STRIPE_RESTRICTED_KEY:</span> ${'${{'} secrets.STRIPE_RESTRICTED_KEY ${'}}'}
-
-  <span class="text-blue-400">agent-work:</span>
-    <span class="text-purple-400">name:</span> Autonomous Agent Execution
-    <span class="text-purple-400">if:</span> contains(github.event.issue.labels.*.name, 'priority:funded')
-    <span class="text-purple-400">runs-on:</span> ubuntu-latest
-    <span class="text-purple-400">timeout-minutes:</span> 120
-    <span class="text-purple-400">steps:</span>
-      - <span class="text-purple-400">uses:</span> actions/checkout@v4
-      - <span class="text-purple-400">uses:</span> priority-ai/agent@v1
-        <span class="text-purple-400">with:</span>
-          <span class="text-blue-400">task:</span> ${'${{'} github.event.issue.body ${'}}'}
-          <span class="text-blue-400">max-tokens:</span> ${'${{'} env.TOKEN_BUDGET ${'}}'}
-          <span class="text-blue-400">safety-mode:</span> strict
-          <span class="text-blue-400">auto-pr:</span> true
-        <span class="text-purple-400">env:</span>
-          <span class="text-blue-400">ANTHROPIC_API_KEY:</span> <span class="text-green-400">${'${{'} secrets.ANTHROPIC_API_KEY ${'}}'}</span>
-
-  <span class="text-blue-400">refund-check:</span>
-    <span class="text-purple-400">name:</span> Process Refunds
-    <span class="text-purple-400">if:</span> github.event_name == 'schedule'
-    <span class="text-purple-400">runs-on:</span> ubuntu-latest
-    <span class="text-purple-400">steps:</span>
-      - <span class="text-purple-400">uses:</span> priority-ai/refund-check@v1
-        <span class="text-purple-400">with:</span>
-          <span class="text-blue-400">inactive-days:</span> 7
-          <span class="text-blue-400">auto-approve-under:</span> 100</pre>
-				</div>
-			</div>
+			<AnimatedCodeEditor client:load />
 		</div>
 
-		<!-- Configuration File -->
-		<div class="mb-16">
-			<h3 class="text-2xl font-bold mb-8">🎛️ Fine-Tune Everything</h3>
-			
-			<div class="glass-card p-6">
-				<div class="flex items-center justify-between mb-4">
-					<div class="flex items-center gap-2">
-						<span class="text-sm text-gray-400">.github/priority/</span>
-						<span class="font-mono font-semibold">config.yml</span>
-					</div>
-					<button class="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded hover:bg-gray-700 transition">
-						Copy
-					</button>
-				</div>
-				
-				<div class="code-block text-xs overflow-x-auto">
-					<pre class="text-gray-300"><span class="text-purple-400">version:</span> 2
-
-<span class="text-gray-500"># 🧠 AI Estimation Settings</span>
-<span class="text-purple-400">estimation:</span>
-  <span class="text-blue-400">model:</span> claude-3-opus        <span class="text-gray-500"># or: gpt-4, llama-3, ensemble</span>
-  <span class="text-blue-400">confidence_threshold:</span> 0.7   <span class="text-gray-500"># Min confidence to show estimate</span>
-  <span class="text-blue-400">hourly_rate:</span> 100            <span class="text-gray-500"># Default $/hour for estimates</span>
-  
-  <span class="text-blue-400">complexity_factors:</span>
-    <span class="text-blue-400">breaking_change:</span> 1.5      <span class="text-gray-500"># Multiplier for breaking changes</span>
-    <span class="text-blue-400">no_tests:</span> 2.0            <span class="text-gray-500"># Multiplier when no tests exist</span>
-    <span class="text-blue-400">security:</span> 1.8            <span class="text-gray-500"># Security-related issues</span>
-    
-  <span class="text-blue-400">learning:</span>
-    <span class="text-blue-400">enabled:</span> true            <span class="text-gray-500"># Learn from completed issues</span>
-    <span class="text-blue-400">min_samples:</span> 10          <span class="text-gray-500"># Issues needed before learning</span>
-
-<span class="text-gray-500"># 💰 Payment Configuration</span>
-<span class="text-purple-400">payments:</span>
-  <span class="text-blue-400">minimum:</span> 20                 <span class="text-gray-500"># Minimum funding amount</span>
-  <span class="text-blue-400">maximum:</span> 10000              <span class="text-gray-500"># Maximum single payment</span>
-  
-  <span class="text-blue-400">providers:</span>
-    <span class="text-blue-400">stripe:</span>
-      <span class="text-blue-400">enabled:</span> true
-      <span class="text-blue-400">restricted_key:</span> <span class="text-green-400">${'${STRIPE_RESTRICTED_KEY}'}</span>
-      <span class="text-blue-400">webhook_secret:</span> <span class="text-green-400">${'${STRIPE_WEBHOOK_SECRET}'}</span>
-      
-    <span class="text-blue-400">github_sponsors:</span>
-      <span class="text-blue-400">enabled:</span> true
-      <span class="text-blue-400">tiers:</span>
-        <span class="text-blue-400">bronze:</span> [20, 99]
-        <span class="text-blue-400">silver:</span> [100, 499]
-        <span class="text-blue-400">gold:</span> [500, null]
-
-<span class="text-gray-500"># 🤖 Agent Configuration</span>
-<span class="text-purple-400">agent:</span>
-  <span class="text-blue-400">enabled:</span> true
-  <span class="text-blue-400">provider:</span> anthropic
-  <span class="text-blue-400">model:</span> claude-3-opus
-  <span class="text-blue-400">temperature:</span> 0.3
-  
-  <span class="text-blue-400">capabilities:</span>
-    <span class="text-blue-400">read_code:</span> true
-    <span class="text-blue-400">write_code:</span> true
-    <span class="text-blue-400">run_tests:</span> true
-    <span class="text-blue-400">create_pr:</span> true
-    <span class="text-blue-400">respond_to_review:</span> true
-    
-  <span class="text-blue-400">safety:</span>
-    <span class="text-blue-400">max_files_per_commit:</span> 50
-    <span class="text-blue-400">require_tests:</span> true
-    <span class="text-blue-400">no_force_push:</span> true
-
-<span class="text-gray-500"># 💸 Refund Policy</span>
-<span class="text-purple-400">refunds:</span>
-  <span class="text-blue-400">auto_process:</span> true
-  <span class="text-blue-400">inactive_days:</span> 7            <span class="text-gray-500"># Days before auto-refund</span>
-  <span class="text-blue-400">grace_period:</span> 3             <span class="text-gray-500"># Warning before refund</span>
-  
-  <span class="text-blue-400">conditions:</span>
-    <span class="text-blue-400">no_activity:</span>
-      <span class="text-blue-400">days:</span> 7
-      <span class="text-blue-400">refund_percent:</span> 100
-      
-    <span class="text-blue-400">work_blocked:</span>
-      <span class="text-blue-400">days:</span> 14
-      <span class="text-blue-400">refund_percent:</span> 90      <span class="text-gray-500"># Keep 10% for time spent</span>
-      
-    <span class="text-blue-400">scope_increased:</span>
-      <span class="text-blue-400">threshold:</span> 50%           <span class="text-gray-500"># If scope increases >50%</span>
-      <span class="text-blue-400">action:</span> request_delta    <span class="text-gray-500"># Ask for more funding</span>
-
-<span class="text-gray-500"># 📊 Analytics & Reporting</span>
-<span class="text-purple-400">analytics:</span>
-  <span class="text-blue-400">dashboard:</span> public            <span class="text-gray-500"># or: private, maintainers-only</span>
-  <span class="text-blue-400">export_format:</span> [json, csv]
-  <span class="text-blue-400">report_frequency:</span> weekly</pre>
-				</div>
-			</div>
-		</div>
-
-		<!-- Commands Reference -->
+		<!-- Interactive Commands -->
 		<div>
-			<h3 class="text-2xl font-bold mb-8">💬 All Commands at Your Fingertips</h3>
+			<h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+				<span class="text-3xl animate-pulse">💬</span>
+				<span>All Commands at Your Fingertips</span>
+				<span class="text-sm text-gray-400 font-normal">(Click to execute!)</span>
+			</h3>
 			
-			<div class="grid md:grid-cols-2 gap-6">
-				<div class="glass-card p-6">
-					<h4 class="font-bold mb-4 text-blue-400">For Contributors</h4>
-					<div class="space-y-3 text-sm">
-						<div class="flex justify-between items-start">
-							<code class="text-green-400">/estimate</code>
-							<span class="text-gray-500">Get AI estimate for this issue</span>
-						</div>
-						<div class="flex justify-between items-start">
-							<code class="text-green-400">/fund 500</code>
-							<span class="text-gray-500">Fund with $500</span>
-						</div>
-						<div class="flex justify-between items-start">
-							<code class="text-green-400">/fund sponsors 1000</code>
-							<span class="text-gray-500">Fund via GitHub Sponsors</span>
-						</div>
-						<div class="flex justify-between items-start">
-							<code class="text-green-400">/confirm pi_xyz</code>
-							<span class="text-gray-500">Confirm payment</span>
-						</div>
-						<div class="flex justify-between items-start">
-							<code class="text-green-400">/status</code>
-							<span class="text-gray-500">Check work progress</span>
-						</div>
-						<div class="flex justify-between items-start">
-							<code class="text-green-400">/refund</code>
-							<span class="text-gray-500">Request refund</span>
-						</div>
-					</div>
-				</div>
-				
-				<div class="glass-card p-6">
-					<h4 class="font-bold mb-4 text-purple-400">For Maintainers</h4>
-					<div class="space-y-3 text-sm">
-						<div class="flex justify-between items-start">
-							<code class="text-purple-400">/priority enable</code>
-							<span class="text-gray-500">Enable on this repo</span>
-						</div>
-						<div class="flex justify-between items-start">
-							<code class="text-purple-400">/priority set-rate 150</code>
-							<span class="text-gray-500">Set hourly rate</span>
-						</div>
-						<div class="flex justify-between items-start">
-							<code class="text-purple-400">/priority pause</code>
-							<span class="text-gray-500">Pause new funding</span>
-						</div>
-						<div class="flex justify-between items-start">
-							<code class="text-purple-400">/priority assign @user</code>
-							<span class="text-gray-500">Assign to developer</span>
-						</div>
-						<div class="flex justify-between items-start">
-							<code class="text-purple-400">/priority complete</code>
-							<span class="text-gray-500">Mark as complete</span>
-						</div>
-						<div class="flex justify-between items-start">
-							<code class="text-purple-400">/priority stats</code>
-							<span class="text-gray-500">View earnings stats</span>
-						</div>
-					</div>
-				</div>
-			</div>
+			<InteractiveCommands client:load />
 		</div>
 	</div>
 </section>
+
+<style>
+	.feature-card {
+		padding: 1.5rem;
+		border-radius: 0.75rem;
+		background-color: rgba(17, 24, 39, 0.5);
+		border: 1px solid rgba(31, 41, 55, 1);
+	}
+	
+	.feature-card:hover {
+		border-color: rgba(55, 65, 81, 1);
+		background-color: rgba(17, 24, 39, 0.7);
+		box-shadow: 0 20px 40px -10px rgba(66, 153, 255, 0.15);
+	}
+	
+	.code-block {
+		padding: 1rem;
+		border-radius: 0.5rem;
+		background-color: rgba(0, 0, 0, 0.5);
+		border: 1px solid rgba(31, 41, 55, 1);
+		font-family: monospace;
+	}
+</style>

@@ -613,6 +613,10 @@ import TiltedCard from './TiltedCard.astro';
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     border-color: rgba(59, 130, 246, 0.6);
   }
+  
+  .tier-card.believer:hover .fund-button {
+    transform: translateY(4px) translateZ(0);
+  }
 
 
   .tier-amount.believer {
@@ -639,6 +643,10 @@ import TiltedCard from './TiltedCard.astro';
     transform: translateY(-4px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
     border-color: rgba(147, 51, 234, 0.7);
+  }
+  
+  .tier-card.prd:hover .fund-button {
+    transform: translateY(4px) translateZ(0);
   }
 
 
@@ -680,6 +688,10 @@ import TiltedCard from './TiltedCard.astro';
     transform: translateY(-4px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
     border-color: rgba(245, 158, 11, 0.7);
+  }
+  
+  .tier-card.builder:hover .fund-button {
+    transform: translateY(4px) translateZ(0);
   }
 
 
@@ -762,6 +774,10 @@ import TiltedCard from './TiltedCard.astro';
     transform: translateY(-4px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
     border-color: rgba(236, 72, 153, 0.8);
+  }
+  
+  .tier-card.unicorn:hover .fund-button {
+    transform: translateY(4px) translateZ(0);
   }
 
 
@@ -887,7 +903,7 @@ import TiltedCard from './TiltedCard.astro';
     text-decoration: none;
     display: inline-block;
     text-align: center;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     position: relative;
     z-index: 20;
     border: 2px solid transparent;
