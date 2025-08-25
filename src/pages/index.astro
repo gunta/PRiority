@@ -75,25 +75,30 @@ import '../styles/global.css';
 			zIndex={9999}
 		/>
 
+		<!-- Announcement Bar -->
+		<div class="fixed top-0 left-0 right-0 z-[110] bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 text-white py-2 px-4 text-center text-sm font-semibold animate-gradient-x">
+			🚨 Building the future of open source sustainability · Limited spots available 🚨
+		</div>
+		
 		<!-- Navigation -->
-		<nav class="fixed top-0 left-0 right-0 z-[100] px-6 py-4 lg:px-12 bg-black/50 backdrop-blur-md border-b border-gray-800/50">
+		<nav class="fixed top-12 left-0 right-0 z-[100] px-6 py-4 lg:px-12 bg-black/50 backdrop-blur-md border-b border-gray-800/50">
 			<div class="max-w-7xl mx-auto flex items-center justify-between">
 				<div class="flex items-center space-x-2">
 					<img src="/PRiority/logo.png" alt="PRiority Logo" class="h-12 w-auto object-contain" />
 				</div>
 				<div class="flex items-center space-x-8">
-					<a href="#how-it-works" class="hidden md:block text-gray-300 hover:text-white transition">How it Works</a>
-					<a href="#magic-bento" class="hidden md:block text-gray-300 hover:text-white transition">Features</a>
-					<a href="#fund" class="hidden md:block text-gray-300 hover:text-white transition font-semibold">💰 Back It!</a>
-					<a href="#cta" class="glow-button">
-						Join the Revolution
+					<a href="#how-it-works" class="hidden md:block text-gray-400 hover:text-white transition-all duration-200 font-medium">How it Works</a>
+					<a href="#magic-bento" class="hidden md:block text-gray-400 hover:text-white transition-all duration-200 font-medium">Features</a>
+					<a href="#fund" class="hidden md:block text-blue-400 hover:text-blue-300 transition-all duration-200 font-semibold">Support</a>
+					<a href="https://github.com/gunta/PRiority" target="_blank" class="glow-button text-sm">
+						⭐ Star on GitHub
 					</a>
 				</div>
 			</div>
 		</nav>
 
 
-		<main class="relative z-20 pt-24">
+		<main class="relative z-20 pt-32">
 			<Hero />
 		</main>
 
@@ -199,7 +204,7 @@ import '../styles/global.css';
 							<div class="flex items-center mb-6">
 								<img src="https://github.com/gunta.png" alt="@gunta" class="w-16 h-16 rounded-full border-2 border-blue-500/30 mr-4" />
 								<div>
-									<h3 class="text-2xl font-bold gradient-text">@gunta</h3>
+									<h3 class="text-2xl font-bold gradient-text"><a href="https://github.com/gunta">@gunta</a></h3>
 									<p class="text-gray-400">Creator of OpenSTF</p>
 								</div>
 							</div>
@@ -478,6 +483,14 @@ import '../styles/global.css';
 		<div class="relative z-10">
 			<CTA />
 		</div>
+
+		<!-- Floating Action Button -->
+		<a href="#fund" class="fixed bottom-8 right-8 z-[90] bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2">
+			<span class="font-semibold">Back This Project</span>
+			<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+			</svg>
+		</a>
 
 		<!-- Footer -->
 		<footer class="relative z-10 px-6 py-12 lg:px-12 backdrop-blur-xl overflow-hidden">

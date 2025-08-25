@@ -35,9 +35,9 @@ const TechLogos: React.FC = () => {
 					{logos.map((logo) => (
 						<div
 							key={logo.name}
-							className="logo-item flex flex-col items-center gap-3 opacity-40 transition-all duration-300 hover:opacity-100 hover:-translate-y-1 group cursor-default"
+							className="logo-item flex flex-col items-center gap-3 opacity-100 transition-all duration-300 saturate-150 hover:opacity-100 hover:-translate-y-1 group cursor-default"
 						>
-							<div className="w-16 h-16 md:w-20 md:h-20 transition-all duration-300 group-hover:scale-110 filter grayscale group-hover:grayscale-0 group-hover:drop-shadow-[0_0_20px_rgba(102,179,255,0.4)]">
+							<div className="w-16 h-16 md:w-20 md:h-20 transition-all duration-300 group-hover:scale-110 filter hover:saturate-200 group-hover:grayscale-0 group-hover:drop-shadow-[0_0_20px_rgba(102,179,255,0.4)]">
 								<logo.component
 									size={80}
 									className="w-full h-full"
