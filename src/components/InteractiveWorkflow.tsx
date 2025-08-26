@@ -262,29 +262,47 @@ const InteractiveWorkflow: React.FC = () => {
 							</div>
 						</div>
 
-						{/* Payment UI */}
-						{showPayment && (
-							<div className="glass-card p-6 animate-slide-up">
-								<div className="flex items-center justify-between mb-4">
-									<h3 className="text-lg font-semibold">One-Click Funding</h3>
-									<svg className="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+						{/* Payment UI - Always visible to prevent layout jumping */}
+						<div className="glass-card p-6 transition-all duration-500">
+							<div className="flex items-center justify-between mb-4">
+								<h3 className="text-lg font-semibold">One-Click Funding</h3>
+								{showPayment && (
+									<svg className="w-8 h-8 text-blue-400 animate-fade-in" fill="currentColor" viewBox="0 0 24 24">
 										<path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
 									</svg>
-								</div>
-								<button className="w-full glow-button text-lg py-4 font-semibold">
-									<span className="flex items-center justify-center gap-3">
-										<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-											<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-										</svg>
-										Funded with Stripe
-										<span className="text-green-400">✓</span>
-									</span>
-								</button>
-								<p className="text-xs text-gray-400 text-center mt-2">
-									Transaction completed in 0.7 seconds
-								</p>
+								)}
 							</div>
-						)}
+							<button className={`w-full text-lg py-4 font-semibold transition-all duration-500 ${
+								showPayment 
+									? 'glow-button cursor-pointer' 
+									: 'bg-gray-800 border border-gray-700 cursor-not-allowed opacity-50'
+							}`} disabled={!showPayment}>
+								<span className="flex items-center justify-center gap-3">
+									{showPayment ? (
+										<>
+											<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+												<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+											</svg>
+											Funded with Stripe
+											<span className="text-green-400">✓</span>
+										</>
+									) : (
+										<>
+											<svg className="w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+												<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+											</svg>
+											Waiting for estimation...
+										</>
+									)}
+								</span>
+							</button>
+							<p className="text-xs text-gray-400 text-center mt-2">
+								{showPayment 
+									? 'Transaction completed in 0.7 seconds' 
+									: 'Secure payments with Stripe'
+								}
+							</p>
+						</div>
 					</div>
 				</div>
 

@@ -1,0 +1,360 @@
+---
+export interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<section class={`relative px-4 py-20 ${className}`}>
+  <div class="container mx-auto max-w-7xl">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">
+        <span class="gradient-text">Revolutionary 5% Flat Fee</span>
+      </h2>
+      <div class="inline-block px-4 py-2 bg-green-500/20 border border-green-500/30 rounded-full mb-6">
+        <span class="text-green-400 font-semibold">💳 Powered by Stripe Merchant of Record</span>
+      </div>
+      <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+        The lowest platform fee in the industry. Just <span class="text-white font-bold">5% for everyone</span> - cheaper than any alternative.
+        <span class="block mt-3 text-blue-400 font-semibold">🌍 We handle ALL international taxes. No VAT registration. No tax forms. No compliance headaches.</span>
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8">
+      <!-- Open Source Tier - FEATURED -->
+      <div class="relative group transform lg:-translate-y-4">
+        <div class="absolute inset-0 bg-gradient-to-r from-green-500/30 to-blue-500/30 rounded-3xl blur-xl"></div>
+        <div class="relative bg-black/60 backdrop-blur-xl rounded-3xl border-2 border-green-500/50 p-8">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-2xl font-bold">Open Source</h3>
+            <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          
+          <div class="mb-8">
+            <div class="flex items-baseline">
+              <span class="text-5xl font-bold">Free</span>
+            </div>
+            <p class="text-gray-400 mt-2">Only 5% platform fee on funded issues</p>
+          </div>
+
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300">Public repositories only</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300">AI estimation & execution</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300">Stripe & GitHub Sponsors</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300">Community support</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300">Unlimited funded issues</span>
+            </div>
+          </div>
+
+          <button class="w-full py-3 bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white rounded-xl font-semibold transition-all transform hover:scale-105">
+            Start Building Today
+          </button>
+          
+          <p class="text-center text-sm text-gray-500 mt-4">
+            Supporting open source sustainability
+          </p>
+        </div>
+      </div>
+
+      <!-- Private Teams Tier -->
+      <div class="relative group">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative bg-black/40 backdrop-blur-xl rounded-3xl border border-white/10 group-hover:border-white/20 transition-all p-8">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-2xl font-bold">Private Teams</h3>
+            <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          
+          <div class="mb-8">
+            <div class="flex items-baseline">
+              <span class="text-5xl font-bold">$99</span>
+              <span class="text-gray-400 ml-2">/month</span>
+            </div>
+            <p class="text-gray-400 mt-2">Same 5% fee + private repo access</p>
+          </div>
+
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-blue-400 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300"><strong class="text-white">Private repositories</strong></span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-blue-400 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300">Everything in Open Source</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-blue-400 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300">Priority support (48h)</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-blue-400 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300">Advanced analytics</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-blue-400 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300">Team collaboration tools</span>
+            </div>
+          </div>
+
+          <button class="w-full py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl font-semibold transition-all">
+            Coming Soon
+          </button>
+          
+          <p class="text-center text-sm text-gray-500 mt-4">
+            For confidential internal projects
+          </p>
+        </div>
+      </div>
+
+      <!-- Large Organizations Tier -->
+      <div class="relative group">
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative bg-black/40 backdrop-blur-xl rounded-3xl border border-white/10 group-hover:border-white/20 transition-all p-8">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-2xl font-bold">Organizations</h3>
+            <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </div>
+          
+          <div class="mb-8">
+            <div class="flex items-baseline">
+              <span class="text-5xl font-bold">Custom</span>
+            </div>
+            <p class="text-gray-400 mt-2">Same 5% fee + enterprise support</p>
+          </div>
+
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-purple-400 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300">Everything in Private Teams</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-purple-400 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300">SSO/SAML integration</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-purple-400 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300">Dedicated support & SLA</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-purple-400 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300">On-premise deployment</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-purple-400 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300">Custom AI models</span>
+            </div>
+          </div>
+
+          <button class="w-full py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl font-semibold transition-all">
+            Let's Talk
+          </button>
+          
+          <p class="text-center text-sm text-gray-500 mt-4">
+            For large-scale deployments
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fee Breakdown -->
+    <div class="mt-8 p-6 bg-yellow-500/10 border border-yellow-500/20 rounded-xl">
+      <h3 class="text-lg font-semibold mb-3 text-yellow-400">💳 Important: Additional Fees Apply</h3>
+      <div class="space-y-2 text-sm text-gray-300">
+        <p>• <strong class="text-white">Stripe Payment Processing:</strong> 2.9% + $0.30 per transaction (standard Stripe fees)</p>
+        <p>• <strong class="text-white">AI Agent (Optional):</strong> ~$0.50-5.00 in API tokens per issue, depending on complexity</p>
+        <p>• <strong class="text-white">Total for $100 issue:</strong> ~$108 ($100 + $5 platform + $3.20 Stripe + optional AI)</p>
+      </div>
+      <p class="text-gray-400 mt-3">
+        These are pass-through costs. We don't profit from Stripe or AI fees - just our transparent 5% platform fee.
+      </p>
+    </div>
+
+    <!-- Why 5% Changes Everything -->
+    <div class="mt-8 p-8 bg-gradient-to-r from-green-500/10 via-blue-500/10 to-purple-500/10 rounded-3xl border border-white/10">
+      <div class="text-center">
+        <h3 class="text-2xl font-bold mb-6">Why Our 5% Fee + Stripe MoR Changes Everything</h3>
+        
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+          <div class="p-4 bg-black/40 rounded-xl border border-white/10">
+            <div class="text-3xl mb-2">💰</div>
+            <h4 class="font-bold text-white mb-2">Cheapest in Industry</h4>
+            <p class="text-sm text-gray-400">
+              GitCoin: 7%+ fees<br/>
+              IssueHunt: 10% fees<br/>
+              <span class="text-green-400 font-bold">PRiority: Just 5%</span>
+            </p>
+          </div>
+          
+          <div class="p-4 bg-black/40 rounded-xl border border-white/10">
+            <div class="text-3xl mb-2">🌍</div>
+            <h4 class="font-bold text-white mb-2">Zero Tax Hassle</h4>
+            <p class="text-sm text-gray-400">
+              Stripe handles VAT/GST<br/>
+              No tax registration needed<br/>
+              <span class="text-blue-400 font-bold">Work from anywhere</span>
+            </p>
+          </div>
+          
+          <div class="p-4 bg-black/40 rounded-xl border border-white/10">
+            <div class="text-3xl mb-2">🚀</div>
+            <h4 class="font-bold text-white mb-2">Instant Global</h4>
+            <p class="text-sm text-gray-400">
+              135+ currencies<br/>
+              45+ payment methods<br/>
+              <span class="text-purple-400 font-bold">No barriers</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+          <p class="text-lg text-gray-300 mb-4">
+            <strong class="text-white">The Stripe Advantage:</strong> As a Merchant of Record, Stripe handles all tax compliance globally.
+          </p>
+          <p class="text-gray-400">
+            Developers in Brazil? ✅ No need to register for EU VAT.<br/>
+            Contributors in India? ✅ No US tax forms required.<br/>
+            Maintainers in Japan? ✅ Automatic currency conversion.
+          </p>
+          <p class="text-green-400 font-semibold mt-6">
+            Finally, a funding platform that lets developers focus on code, not compliance.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tax Integration Section -->
+    <div class="mt-8 p-8 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl border border-white/10">
+      <div class="text-center">
+        <h3 class="text-2xl font-bold mb-6">📊 Seamless Tax Integration for Developers Worldwide</h3>
+        
+        <div class="max-w-4xl mx-auto">
+          <p class="text-lg text-gray-300 mb-8">
+            We don't just handle taxes - we give you <strong class="text-white">perfect data exports</strong> for your local tax software.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-6 text-left">
+            <div class="p-5 bg-black/40 rounded-xl border border-white/10">
+              <h4 class="font-bold text-white mb-3 flex items-center">
+                <span class="text-2xl mr-2">🇯🇵</span> Japan
+              </h4>
+              <ul class="space-y-2 text-sm text-gray-400">
+                <li>✅ <span class="text-white">Freee API</span> - Direct sync for 確定申告</li>
+                <li>✅ <span class="text-white">MoneyForward</span> - Automatic categorization</li>
+                <li>✅ <span class="text-white">Yayoi (弥生)</span> - CSV export format</li>
+                <li>✅ e-Tax compatible XML generation</li>
+              </ul>
+            </div>
+
+            <div class="p-5 bg-black/40 rounded-xl border border-white/10">
+              <h4 class="font-bold text-white mb-3 flex items-center">
+                <span class="text-2xl mr-2">🇺🇸</span> United States
+              </h4>
+              <ul class="space-y-2 text-sm text-gray-400">
+                <li>✅ <span class="text-white">QuickBooks API</span> - Real-time sync</li>
+                <li>✅ <span class="text-white">TurboTax Business</span> - 1099 integration</li>
+                <li>✅ <span class="text-white">FreshBooks</span> - Automatic invoicing</li>
+                <li>✅ IRS-ready 1099-K forms</li>
+              </ul>
+            </div>
+
+            <div class="p-5 bg-black/40 rounded-xl border border-white/10">
+              <h4 class="font-bold text-white mb-3 flex items-center">
+                <span class="text-2xl mr-2">🇪🇺</span> Europe
+              </h4>
+              <ul class="space-y-2 text-sm text-gray-400">
+                <li>✅ <span class="text-white">Xero API</span> - Multi-country support</li>
+                <li>✅ <span class="text-white">Sage</span> - VAT MOSS reporting</li>
+                <li>✅ <span class="text-white">DATEV</span> (Germany) - Format export</li>
+                <li>✅ OSS/IOSS compliant reports</li>
+              </ul>
+            </div>
+
+            <div class="p-5 bg-black/40 rounded-xl border border-white/10">
+              <h4 class="font-bold text-white mb-3 flex items-center">
+                <span class="text-2xl mr-2">🌏</span> Rest of World
+              </h4>
+              <ul class="space-y-2 text-sm text-gray-400">
+                <li>✅ <span class="text-white">Zoho Books</span> - India GST ready</li>
+                <li>✅ <span class="text-white">Tally</span> - Indian accounting</li>
+                <li>✅ <span class="text-white">MYOB</span> - Australia/NZ</li>
+                <li>✅ Universal JSON/CSV exports</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mt-8 p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl">
+            <p class="text-sm text-gray-300">
+              <strong class="text-blue-400">🔗 API First:</strong> GET /api/tax-data provides real-time transaction data in your preferred format. 
+              Webhooks notify your accounting software instantly. Every payment includes complete metadata: 
+              invoice number, tax rate applied, currency conversion rates, and regulatory identifiers.
+            </p>
+          </div>
+
+          <p class="text-purple-400 font-semibold mt-6">
+            Stop wrestling with spreadsheets. Your accountant will thank you. 🙏
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gradient-text {
+    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+</style>

@@ -31,7 +31,7 @@ const comparisons: ComparisonItem[] = [
     estimation: "Manual only",
     execution: "None",
     control: "Platform-owned",
-    weakness: "High fees, <1% adoption"
+    weakness: "Same failed model, 20% fees, platform risk"
   },
   {
     name: "Gitcoin",
@@ -42,6 +42,16 @@ const comparisons: ComparisonItem[] = [
     execution: "None",
     control: "DAO governance",
     weakness: "Complex, volatile, high friction"
+  },
+  {
+    name: "Polar (pre-pivot)",
+    status: "failed",
+    infrastructure: "External platform",
+    funding: "Donation model",
+    estimation: "Manual only",
+    execution: "None",
+    control: "Platform-owned",
+    weakness: "Pivoted 2024 - donations rarely happen"
   },
   {
     name: "GitHub Sponsors",
@@ -203,9 +213,9 @@ export default function ComparisonTable() {
             transition={{ delay: 0.6 }}
             className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-6"
           >
-            <h3 className="text-xl font-semibold text-yellow-400 mb-3">The Friction Problem</h3>
+            <h3 className="text-xl font-semibold text-yellow-400 mb-3">The Timing Problem</h3>
             <p className="text-gray-400 text-sm">
-              Requiring external accounts, crypto wallets, or complex onboarding kills adoption. If it's not one-click, it's too much.
+              Polar tried in 2023 without AI - couldn't make it work. The tech wasn't ready. Now with Claude/GPT-4, the economics finally work.
             </p>
           </motion.div>
 
@@ -217,7 +227,7 @@ export default function ComparisonTable() {
           >
             <h3 className="text-xl font-semibold text-green-400 mb-3">The PRiority Way</h3>
             <p className="text-gray-400 text-sm">
-              GitHub-native, AI-powered, repo-owned. No platform risk, no friction, just results. Built on what works, avoiding what doesn't.
+              GitHub-native, AI-powered, repo-owned. Learning from every failure, leveraging 2024's AI capabilities. The timing is finally right.
             </p>
           </motion.div>
         </div>

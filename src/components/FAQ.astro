@@ -54,10 +54,10 @@ const { className = "" } = Astro.props;
             <div class="group">
               <h3 class="text-xl font-semibold mb-3 text-white/90 flex items-start">
                 <span class="text-green-400 mr-3">→</span>
-                Can I get a refund if work isn't completed?
+                Can I get a refund? What about abuse?
               </h3>
               <p class="text-gray-400 ml-8">
-                Yes! Automatic refunds trigger after 7 days of inactivity (100% refund), 14 days if blocked waiting for input (minus tokens used), or if scope increases >50%. Refunds are calculated fairly: original amount minus tokens used, time logged, and platform fee (10%).
+                Refunds are graduated to prevent abuse: 85% before work starts, 40% after code is written, 25% after PR opened, 0% after merge. This prevents the "fund → get code → refund → steal" exploit. Platform fees (10%) and AI tokens are never refundable as they're already consumed.
               </p>
             </div>
 
@@ -125,9 +125,48 @@ const { className = "" } = Astro.props;
           </div>
         </div>
 
+        <!-- Additional Critical FAQs -->
+        <div class="mt-8 p-6 bg-yellow-500/10 border border-yellow-500/20 rounded-xl">
+          <h3 class="text-xl font-semibold mb-4 text-yellow-400">⚠️ Critical Controls for Maintainers</h3>
+          
+          <div class="space-y-4">
+            <div>
+              <h4 class="font-semibold text-white mb-2">Can I restrict which issues can be funded?</h4>
+              <p class="text-gray-400 text-sm">
+                Yes! Use blacklist mode (block `security`, `internal` labels), whitelist mode (only allow `funding-welcome`), 
+                or require approval for amounts over $500. You control what gets funded.
+              </p>
+            </div>
+            
+            <div>
+              <h4 class="font-semibold text-white mb-2">What if low-priority issues get funded?</h4>
+              <p class="text-gray-400 text-sm">
+                Funded issues enter a queue. You choose the order to work on them. Just because something is funded doesn't mean it jumps the line - you maintain control over priorities.
+              </p>
+            </div>
+            
+            <div>
+              <h4 class="font-semibold text-white mb-2">Does this need VC funding to succeed?</h4>
+              <p class="text-gray-400 text-sm">
+                No. Zero infrastructure needed (runs on GitHub Actions). Revenue from day 1 via platform fees. 
+                We can bootstrap and grow organically. This isn't another VC-dependent platform that will fail when funding dries up.
+              </p>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-white mb-2">What about private repositories?</h4>
+              <p class="text-gray-400 text-sm">
+                <strong class="text-white">Yes, private repos are fully supported!</strong> Pro ($99/mo) and Enterprise (custom) tiers unlock private repository access. 
+                Perfect for companies using GitHub internally. Open source repos are free (10% platform fee only) to encourage transparency, 
+                but we know enterprises need private development too.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div class="mt-12 p-6 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl border border-white/10">
           <p class="text-center text-gray-400">
-            Have more questions? Check our <a href="https://docs.priority.dev" class="text-blue-400 hover:text-blue-300 underline">documentation</a> or ask in an issue on <a href="https://github.com/priority/priority" class="text-blue-400 hover:text-blue-300 underline">our GitHub</a>
+            Have more questions? Ask in an issue on <a href="https://github.com/gunta/PRiority" class="text-blue-400 hover:text-blue-300 underline">our GitHub</a>
           </p>
         </div>
       </div>

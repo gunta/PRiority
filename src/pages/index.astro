@@ -12,6 +12,8 @@ import InteractiveWorkflow from '../components/InteractiveWorkflow.tsx';
 import FAQ from '../components/FAQ.astro';
 import ComparisonTable from '../components/ComparisonTable.tsx';
 import WhyNow from '../components/WhyNow.astro';
+import PricingTiers from '../components/PricingTiers.astro';
+import GitHubStarButton from '../components/GitHubStarButton.tsx';
 import BlobCursor from '../Animations/BlobCursor/BlobCursor.tsx';
 import Particles from '../Backgrounds/Particles/Particles.tsx';
 import Beams from '../Backgrounds/Beams/Beams.tsx';
@@ -93,13 +95,11 @@ import '../styles/global.css';
 				<div class="flex items-center space-x-2">
 					<img src="/PRiority/logo.png" alt="PRiority Logo" class="h-12 w-auto object-contain" />
 				</div>
-				<div class="flex items-center space-x-8">
+				<div class="flex items-center space-x-6">
 					<a href="#how-it-works" class="hidden md:block text-gray-400 hover:text-white transition-all duration-200 font-medium">How it Works</a>
 					<a href="#magic-bento" class="hidden md:block text-gray-400 hover:text-white transition-all duration-200 font-medium">Features</a>
 					<a href="#fund" class="hidden md:block text-blue-400 hover:text-blue-300 transition-all duration-200 font-semibold">Support</a>
-					<a href="https://github.com/gunta/PRiority" target="_blank" class="glow-button text-sm">
-						⭐ Star on GitHub
-					</a>
+					<GitHubStarButton client:load showCount={true} />
 				</div>
 			</div>
 		</nav>
@@ -319,7 +319,8 @@ import '../styles/global.css';
 							How <span class="gradient-text">PRiority</span> Changes Everything
 						</h2>
 						<p class="text-xl text-gray-300 mb-12 max-w-4xl mx-auto">
-							We fixed the broken economics of open source. Here's the simple formula that works:
+							We fixed the broken economics of software development. Open source gets sustainable funding. 
+							Enterprises get priority fixes for private repos. Everyone wins.
 						</p>
 						
 						<div class="grid md:grid-cols-3 gap-8 text-left mb-12">
@@ -463,22 +464,22 @@ import '../styles/global.css';
 						</div>
 						
 						<div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded-xl p-8">
-							<h3 class="text-2xl font-bold mb-4">The Economics Work</h3>
+							<h3 class="text-2xl font-bold mb-4">The Dual Market Opportunity</h3>
 							<div class="grid md:grid-cols-3 gap-6 text-center">
 								<div>
-									<div class="text-3xl font-bold gradient-text mb-2">90%</div>
-									<p class="text-gray-300">of companies use open source</p>
-									<p class="text-gray-500 text-sm">But only 0.02% contribute back</p>
+									<div class="text-3xl font-bold gradient-text mb-2">330M+</div>
+									<p class="text-gray-300">public repos (free tier)</p>
+									<p class="text-gray-500 text-sm">Sustainable open source</p>
 								</div>
 								<div>
-									<div class="text-3xl font-bold gradient-text mb-2">$8.8T</div>
-									<p class="text-gray-300">in unpaid open source value</p>
-									<p class="text-gray-500 text-sm">Time to change that</p>
+									<div class="text-3xl font-bold gradient-text mb-2">28M+</div>
+									<p class="text-gray-300">private repos (paid tier)</p>
+									<p class="text-gray-500 text-sm">Enterprise revenue</p>
 								</div>
 								<div>
-									<div class="text-3xl font-bold gradient-text mb-2">1-Click</div>
-									<p class="text-gray-300">to fund any GitHub issue</p>
-									<p class="text-gray-500 text-sm">Stripe makes it seamless</p>
+									<div class="text-3xl font-bold gradient-text mb-2">$100B</div>
+									<p class="text-gray-300">total addressable market</p>
+									<p class="text-gray-500 text-sm">Open + private combined</p>
 								</div>
 							</div>
 						</div>
@@ -497,6 +498,11 @@ import '../styles/global.css';
 			<WhyNow />
 		</div>
 
+		<!-- Pricing Tiers -->
+		<div class="relative z-10">
+			<PricingTiers />
+		</div>
+
 		<!-- FAQ Section -->
 		<div class="relative z-10">
 			<FAQ />
@@ -510,13 +516,16 @@ import '../styles/global.css';
 			<CTA />
 		</div>
 
-		<!-- Floating Action Button -->
-		<a href="#fund" class="fixed bottom-8 right-8 z-[90] bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2">
-			<span class="font-semibold">Back This Project</span>
-			<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-			</svg>
-		</a>
+		<!-- Floating Action Buttons -->
+		<div class="fixed bottom-8 right-8 z-[90] flex flex-col gap-3">
+			<GitHubStarButton client:load showCount={true} className="shadow-lg hover:shadow-2xl" />
+			<a href="#fund" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2 justify-center">
+				<span class="font-semibold">Back This Project</span>
+				<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+				</svg>
+			</a>
+		</div>
 
 		<!-- Footer -->
 		<footer class="relative z-10 px-6 py-12 lg:px-12 backdrop-blur-xl overflow-hidden">
