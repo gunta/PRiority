@@ -9,6 +9,9 @@ import CTA from '../components/CTA.astro';
 import CrowdfundingCampaign from '../components/CrowdfundingCampaign.astro';
 import TechLogos from '../components/TechLogos.tsx';
 import InteractiveWorkflow from '../components/InteractiveWorkflow.tsx';
+import FAQ from '../components/FAQ.astro';
+import ComparisonTable from '../components/ComparisonTable.tsx';
+import WhyNow from '../components/WhyNow.astro';
 import BlobCursor from '../Animations/BlobCursor/BlobCursor.tsx';
 import Particles from '../Backgrounds/Particles/Particles.tsx';
 import Beams from '../Backgrounds/Beams/Beams.tsx';
@@ -483,6 +486,21 @@ import '../styles/global.css';
 				</FadeContent>
 			</div>
 		</section>
+
+		<!-- Comparison with Failed Solutions -->
+		<div class="relative z-10">
+			<ComparisonTable client:load />
+		</div>
+
+		<!-- Why PRiority Won't Fail -->
+		<div class="relative z-10">
+			<WhyNow />
+		</div>
+
+		<!-- FAQ Section -->
+		<div class="relative z-10">
+			<FAQ />
+		</div>
 
 		<div class="relative z-10">
 			<CrowdfundingCampaign />

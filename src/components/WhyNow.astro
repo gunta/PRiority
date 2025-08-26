@@ -1,0 +1,246 @@
+---
+export interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+
+const reasons = [
+  {
+    number: "01",
+    title: "Zero Platform Risk",
+    description: "No middleman can shut down and take your money. Everything runs on GitHub Actions. Payment credentials in your repo secrets. Transaction ledger in your git history. You own everything.",
+    icon: "🔒",
+    gradient: "from-blue-500 to-cyan-500"
+  },
+  {
+    number: "02",
+    title: "AI Changed Everything",
+    description: "Claude can now analyze issues, estimate complexity, write code, and create tests. What took days of human coordination now happens in minutes. The technology finally caught up to the vision.",
+    icon: "🤖",
+    gradient: "from-purple-500 to-pink-500"
+  },
+  {
+    number: "03",
+    title: "Perfect Timing",
+    description: "90% of companies use open source. Maintainer burnout is at crisis levels. AI coding assistants are mainstream. The market is ready for automated issue funding and resolution.",
+    icon: "⚡",
+    gradient: "from-yellow-500 to-orange-500"
+  },
+  {
+    number: "04",
+    title: "Built on What Works",
+    description: "GitHub Actions (proven). Stripe payments (trusted). Claude API (cutting-edge). We didn't reinvent the wheel - we assembled the best parts that already work perfectly.",
+    icon: "🛠️",
+    gradient: "from-green-500 to-teal-500"
+  },
+  {
+    number: "05",
+    title: "Learning System",
+    description: "Every completed issue makes estimates better. Started at 50% accuracy, reaches &lt;25% MAPE after 20 issues. The more it's used, the more valuable it becomes. Network effects built in.",
+    icon: "📈",
+    gradient: "from-red-500 to-pink-500"
+  },
+  {
+    number: "06",
+    title: "Instant Value",
+    description: "Setup in 3 minutes. First issue funded in hours. No committees, no contracts, no procurement. Click button, pay, get work done. Friction eliminated at every step.",
+    icon: "🚀",
+    gradient: "from-indigo-500 to-purple-500"
+  }
+];
+
+const stats = [
+  { value: "$8.8T", label: "Unpaid OSS labor value" },
+  { value: "67%", label: "Maintainers report burnout" },
+  { value: "330M+", label: "GitHub repositories" },
+  { value: "0.02%", label: "Users who contribute financially" }
+];
+---
+
+<section class={`relative px-4 py-20 ${className}`}>
+  <div class="container mx-auto max-w-7xl">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-5xl md:text-6xl font-bold mb-6">
+        <span class="block text-white/80 text-2xl md:text-3xl mb-2 font-normal">Why Others Failed</span>
+        <span class="gradient-text">Why We Won't</span>
+      </h2>
+      <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+        Every failed solution taught us what not to do. We built PRiority differently from the ground up. 
+        Here's why this time is different.
+      </p>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+      {stats.map((stat) => (
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 text-center">
+          <div class="text-3xl font-bold gradient-text mb-2">{stat.value}</div>
+          <div class="text-sm text-gray-400">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Reasons Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      {reasons.map((reason, index) => (
+        <div 
+          class="group relative bg-black/40 backdrop-blur-xl rounded-2xl border border-white/10 p-8 hover:border-white/20 transition-all duration-300"
+          style={`animation-delay: ${index * 100}ms`}
+        >
+          <!-- Gradient background on hover -->
+          <div class={`absolute inset-0 bg-gradient-to-br ${reason.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}></div>
+          
+          <div class="relative">
+            <!-- Number and Icon -->
+            <div class="flex items-start justify-between mb-4">
+              <span class={`text-5xl font-bold bg-gradient-to-r ${reason.gradient} bg-clip-text text-transparent opacity-50`}>
+                {reason.number}
+              </span>
+              <span class="text-4xl">{reason.icon}</span>
+            </div>
+            
+            <!-- Content -->
+            <h3 class="text-xl font-semibold text-white mb-3">{reason.title}</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">{reason.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- The Big Difference -->
+    <div class="relative">
+      <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-3xl"></div>
+      <div class="relative bg-black/60 backdrop-blur-xl rounded-3xl border border-white/10 p-12">
+        <h3 class="text-3xl font-bold text-center mb-8">
+          <span class="gradient-text">The Fundamental Difference</span>
+        </h3>
+        
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h4 class="text-xl font-semibold text-red-400 mb-4">❌ How Others Built</h4>
+            <ul class="space-y-3 text-gray-400">
+              <li class="flex items-start">
+                <span class="text-red-400 mr-2">→</span>
+                <span>Created external platforms that could fail</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-red-400 mr-2">→</span>
+                <span>Required users to leave GitHub</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-red-400 mr-2">→</span>
+                <span>Held funds in escrow (platform risk)</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-red-400 mr-2">→</span>
+                <span>Manual estimation and execution</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-red-400 mr-2">→</span>
+                <span>Complex onboarding and setup</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-red-400 mr-2">→</span>
+                <span>Ignored maintainer autonomy</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="text-xl font-semibold text-green-400 mb-4">✅ How We Built</h4>
+            <ul class="space-y-3 text-gray-400">
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2">→</span>
+                <span>Runs entirely on GitHub infrastructure</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2">→</span>
+                <span>Everything happens in issue comments</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2">→</span>
+                <span>Direct payments, no middleman</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2">→</span>
+                <span>AI estimation and autonomous execution</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2">→</span>
+                <span>3-minute setup, zero friction</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2">→</span>
+                <span>Maintainers control everything</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="mt-8 p-6 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl border border-white/10">
+          <p class="text-center text-lg text-white/90">
+            <span class="font-semibold gradient-text">Bottom line:</span>
+            <span class="text-gray-300 ml-2">
+              We're not building another platform. We're building infrastructure that becomes part of GitHub itself.
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center mt-16">
+      <p class="text-xl text-gray-400 mb-6">
+        The future of open source is funded. The future is autonomous. The future is now.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#hero" class="glow-button px-8 py-4 text-lg font-semibold">
+          Start Funding Issues
+        </a>
+        <a href="https://github.com/priority/priority" class="px-8 py-4 text-lg font-semibold border border-white/20 rounded-xl hover:bg-white/10 transition-colors">
+          Read the Docs
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gradient-text {
+    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-button {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    border-radius: 0.75rem;
+    position: relative;
+    transition: transform 0.2s;
+  }
+
+  .glow-button::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+    border-radius: 0.75rem;
+    padding: 2px;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+  }
+
+  .glow-button:hover::before {
+    opacity: 1;
+  }
+
+  .glow-button:hover {
+    transform: translateY(-2px);
+  }
+</style>

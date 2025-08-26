@@ -1,0 +1,145 @@
+---
+export interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<section class={`relative px-4 ${className}`}>
+  <div class="container mx-auto max-w-7xl">
+    <div class="relative">
+      <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 blur-3xl opacity-50"></div>
+      
+      <div class="relative bg-black/40 backdrop-blur-xl rounded-3xl border border-white/10 p-8 md:p-12">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            <span class="gradient-text">Frequently Asked Questions</span>
+          </h2>
+          <p class="text-xl text-gray-400">Everything you need to know about PRiority</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="space-y-6">
+            <div class="group">
+              <h3 class="text-xl font-semibold mb-3 text-white/90 flex items-start">
+                <span class="text-blue-400 mr-3">→</span>
+                How is PRiority different from GitHub Sponsors?
+              </h3>
+              <p class="text-gray-400 ml-8">
+                GitHub Sponsors is for monthly subscriptions to support maintainers generally. PRiority is for funding specific issues with one-time payments. You pay for what you need, when you need it. Sponsors is "support the creator", PRiority is "get this specific thing done now."
+              </p>
+            </div>
+
+            <div class="group">
+              <h3 class="text-xl font-semibold mb-3 text-white/90 flex items-start">
+                <span class="text-purple-400 mr-3">→</span>
+                What happened to BountySource and similar platforms?
+              </h3>
+              <p class="text-gray-400 ml-8">
+                BountySource shut down in 2023, leaving $2M in limbo. IssueHunt requires external accounts. Gitcoin uses complex crypto mechanics. They all failed because they were external platforms. PRiority runs entirely on GitHub Actions with funds controlled by the repository owner. No middleman, no platform risk.
+              </p>
+            </div>
+
+            <div class="group">
+              <h3 class="text-xl font-semibold mb-3 text-white/90 flex items-start">
+                <span class="text-pink-400 mr-3">→</span>
+                How accurate are the AI estimates?
+              </h3>
+              <p class="text-gray-400 ml-8">
+                Our estimation starts at ~50% accuracy and improves to &lt;25% MAPE (Mean Absolute Percentage Error) after 20 completed issues. We use ensemble models combining historical data, code complexity analysis, and Claude's assessment. Estimates include confidence intervals (p10, p50, p90) so you know the range.
+              </p>
+            </div>
+
+            <div class="group">
+              <h3 class="text-xl font-semibold mb-3 text-white/90 flex items-start">
+                <span class="text-green-400 mr-3">→</span>
+                Can I get a refund if work isn't completed?
+              </h3>
+              <p class="text-gray-400 ml-8">
+                Yes! Automatic refunds trigger after 7 days of inactivity (100% refund), 14 days if blocked waiting for input (minus tokens used), or if scope increases >50%. Refunds are calculated fairly: original amount minus tokens used, time logged, and platform fee (10%).
+              </p>
+            </div>
+
+            <div class="group">
+              <h3 class="text-xl font-semibold mb-3 text-white/90 flex items-start">
+                <span class="text-yellow-400 mr-3">→</span>
+                What's the minimum/maximum funding amount?
+              </h3>
+              <p class="text-gray-400 ml-8">
+                Minimum is $20 to cover transaction costs. Maximum is $10,000 per issue by default (configurable by maintainers). Most issues are funded between $100-$1,000 based on complexity. The AI suggests amounts but you can always choose custom amounts.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="group">
+              <h3 class="text-xl font-semibold mb-3 text-white/90 flex items-start">
+                <span class="text-cyan-400 mr-3">→</span>
+                How does the AI agent work?
+              </h3>
+              <p class="text-gray-400 ml-8">
+                Claude analyzes the issue, writes code, creates tests, and opens a PR. It works within a token budget (tied to funding amount) and has safety controls: no force push, sandboxed execution, automatic rollback on test failure. Human review is always required for merge. Think of it as an AI junior developer.
+              </p>
+            </div>
+
+            <div class="group">
+              <h3 class="text-xl font-semibold mb-3 text-white/90 flex items-start">
+                <span class="text-orange-400 mr-3">→</span>
+                Who controls the funds?
+              </h3>
+              <p class="text-gray-400 ml-8">
+                The repository owner controls everything. Payment credentials are stored in GitHub Secrets, all transactions are logged in `.github/priority/`, and maintainers can pause, refund, or reassign work at any time. PRiority never touches the money - it goes directly from funder to maintainer via Stripe/Polar.
+              </p>
+            </div>
+
+            <div class="group">
+              <h3 class="text-xl font-semibold mb-3 text-white/90 flex items-start">
+                <span class="text-red-400 mr-3">→</span>
+                What about security and compliance?
+              </h3>
+              <p class="text-gray-400 ml-8">
+                No PII is stored (only payment provider references). All data stays in GitHub (SOC2 compliant). Payment providers handle PCI DSS, KYC/AML. The AI agent has no access to secrets, can't force push, and works in sandboxed environments. Every transaction is auditable in the git history.
+              </p>
+            </div>
+
+            <div class="group">
+              <h3 class="text-xl font-semibold mb-3 text-white/90 flex items-start">
+                <span class="text-indigo-400 mr-3">→</span>
+                How much does PRiority cost?
+              </h3>
+              <p class="text-gray-400 ml-8">
+                Free tier: 10% platform fee on funded issues. Pro ($99/month per repo): 8% fee plus analytics and priority support. Enterprise (custom): 5% fee plus SSO, audit logs, and SLAs. Payment processor fees (2.9% + $0.30 for Stripe) are separate.
+              </p>
+            </div>
+
+            <div class="group">
+              <h3 class="text-xl font-semibold mb-3 text-white/90 flex items-start">
+                <span class="text-teal-400 mr-3">→</span>
+                How quickly can I get started?
+              </h3>
+              <p class="text-gray-400 ml-8">
+                Under 3 minutes! Run `npx @priority/setup`, add your Stripe key to GitHub Secrets, and you're done. No external accounts, no complex configuration. PRiority automatically generates estimates for new issues and handles the entire payment flow through issue comments.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 p-6 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl border border-white/10">
+          <p class="text-center text-gray-400">
+            Have more questions? Check our <a href="https://docs.priority.dev" class="text-blue-400 hover:text-blue-300 underline">documentation</a> or ask in an issue on <a href="https://github.com/priority/priority" class="text-blue-400 hover:text-blue-300 underline">our GitHub</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gradient-text {
+    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+</style>
