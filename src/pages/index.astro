@@ -83,34 +83,8 @@ import '../styles/global.css';
 			zIndex={9999}
 		/>
 
-		<!-- FOMO Announcement Bar -->
-		<div class="fomo-banner fixed top-0 left-0 right-0 z-[110]">
-			<div class="fomo-content">
-				<div class="fomo-ticker">
-					<span class="fomo-item">
-						🔥 <strong>$2,500</strong> raised in last 24 hours
-					</span>
-					<span class="fomo-divider">·</span>
-					<span class="fomo-item">
-						⚡ <strong>17</strong> early bird spots left (50% off)
-					</span>
-					<span class="fomo-divider">·</span>
-					<span class="fomo-item">
-						⏰ <strong>47 days</strong> until campaign ends
-					</span>
-					<span class="fomo-divider">·</span>
-					<span class="fomo-item live-update">
-						💚 Someone from <span id="supporter-location">Berlin</span> just contributed <span id="supporter-amount">$100</span>
-					</span>
-				</div>
-				<a href="/PRiority/fund" class="fomo-cta">
-					Join Now →
-				</a>
-			</div>
-		</div>
-		
 		<!-- Navigation -->
-		<nav class="fixed top-12 left-0 right-0 z-[100] px-6 py-4 lg:px-12 bg-black/50 backdrop-blur-md border-b border-gray-800/50">
+		<nav class="fixed top-0 left-0 right-0 z-[100] px-6 py-4 lg:px-12 bg-black/50 backdrop-blur-md border-b border-gray-800/50">
 			<div class="max-w-7xl mx-auto flex items-center justify-between">
 				<div class="flex items-center space-x-2">
 					<img src="/PRiority/logo.png" alt="PRiority Logo" class="h-12 w-auto object-contain" />
@@ -125,7 +99,7 @@ import '../styles/global.css';
 		</nav>
 
 
-		<main class="relative z-20 pt-32">
+		<main class="relative z-20 pt-24">
 			<Hero />
 		</main>
 
@@ -540,7 +514,7 @@ import '../styles/global.css';
 					<div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
 						<a href="/PRiority/fund" class="fund-cta-button">
 							<span class="rocket-icon">🚀</span>
-							Support the Vision
+							Validate This Project
 							<span class="arrow">→</span>
 						</a>
 						<a href="/PRiority/validation-disclosure" class="text-gray-400 hover:text-white transition-colors underline">
@@ -573,7 +547,7 @@ import '../styles/global.css';
 		<div class="fixed bottom-8 right-8 z-[90] flex flex-col gap-3">
 			<GitHubStarButton client:load showCount={true} className="shadow-lg hover:shadow-2xl" />
 			<a href="/PRiority/fund" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2 justify-center">
-				<span class="font-semibold">Back This Project</span>
+				<span class="font-semibold">Support Validation</span>
 				<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
 				</svg>
@@ -585,7 +559,7 @@ import '../styles/global.css';
 			<div class="widget-content">
 				<div class="widget-header">
 					<span class="widget-badge">LIVE</span>
-					<span class="widget-title">Campaign Progress</span>
+					<span class="widget-title">Validation Progress</span>
 				</div>
 				<div class="widget-progress">
 					<div class="progress-bar">
@@ -593,20 +567,17 @@ import '../styles/global.css';
 					</div>
 					<div class="progress-stats">
 						<span class="raised-amount" id="widget-raised">$1,247</span>
-						<span class="goal-amount">of $10K</span>
+						<span class="goal-amount">of $10K goal</span>
 					</div>
 				</div>
 				<div class="widget-footer">
 					<div class="supporter-count">
-						<span class="supporter-icon">👥</span>
-						<span id="widget-supporters">23</span> backers
-					</div>
-					<div class="time-left">
-						⏰ <span id="widget-days">47</span> days left
+						<span class="supporter-icon">💚</span>
+						<span id="widget-supporters">23</span> supporters
 					</div>
 				</div>
 				<a href="/PRiority/fund" class="widget-cta">
-					View Campaign →
+					Learn More →
 				</a>
 			</div>
 		</div>
@@ -670,9 +641,9 @@ import '../styles/global.css';
 						<span class="fomo-action">New supporter from Tokyo</span>
 					</div>
 				</div>
-				<div class="fomo-urgency">
+				<!-- <div class="fomo-urgency">
 					⚡ Only <strong>17</strong> early bird spots left!
-				</div>
+				</div> -->
 				<a href="/PRiority/fund" class="fomo-widget-cta">
 					View Campaign →
 				</a>
@@ -804,106 +775,7 @@ import '../styles/global.css';
 		}
 	}
 
-	/* FOMO Banner Styles */
-	.fomo-banner {
-		background: linear-gradient(90deg, #1e1b4b, #312e81, #1e1b4b);
-		background-size: 200% 100%;
-		animation: gradient-shift 10s ease infinite;
-		padding: 8px 16px;
-		border-bottom: 1px solid rgba(147, 51, 234, 0.3);
-		box-shadow: 0 2px 10px rgba(147, 51, 234, 0.2);
-	}
 
-	@keyframes gradient-shift {
-		0%, 100% { background-position: 0% 50%; }
-		50% { background-position: 100% 50%; }
-	}
-
-	.fomo-content {
-		max-width: 1400px;
-		margin: 0 auto;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 20px;
-	}
-
-	.fomo-ticker {
-		display: flex;
-		align-items: center;
-		gap: 16px;
-		overflow-x: auto;
-		flex: 1;
-		font-size: 14px;
-		color: #e0e7ff;
-	}
-
-	.fomo-ticker::-webkit-scrollbar {
-		display: none;
-	}
-
-	.fomo-item {
-		white-space: nowrap;
-		animation: fadeIn 1s ease-out;
-	}
-
-	.fomo-item strong {
-		color: #fbbf24;
-		font-weight: 700;
-	}
-
-	.fomo-divider {
-		color: #6366f1;
-		opacity: 0.5;
-	}
-
-	.live-update {
-		animation: pulse-glow 2s infinite;
-	}
-
-	@keyframes pulse-glow {
-		0%, 100% { opacity: 0.8; }
-		50% { opacity: 1; filter: brightness(1.2); }
-	}
-
-	.fomo-cta {
-		background: linear-gradient(135deg, #f59e0b, #ef4444);
-		color: white;
-		padding: 6px 16px;
-		border-radius: 20px;
-		font-weight: 600;
-		text-decoration: none;
-		white-space: nowrap;
-		transition: all 0.3s ease;
-		box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
-		animation: cta-pulse 2s infinite;
-	}
-
-	@keyframes cta-pulse {
-		0%, 100% { transform: scale(1); }
-		50% { transform: scale(1.05); }
-	}
-
-	.fomo-cta:hover {
-		background: linear-gradient(135deg, #fbbf24, #f97316);
-		box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5);
-		transform: scale(1.1);
-	}
-
-	@media (max-width: 768px) {
-		.fomo-content {
-			flex-direction: column;
-			gap: 8px;
-		}
-
-		.fomo-ticker {
-			justify-content: center;
-		}
-
-		.fomo-divider {
-			display: none;
-		}
-	}
 
 	/* Floating FOMO Widget */
 	.fomo-widget {
@@ -1078,30 +950,3 @@ import '../styles/global.css';
 	}
 </style>
 
-<script>
-	// FOMO Banner Updates
-	const locations = ['Tokyo', 'London', 'New York', 'Berlin', 'Sydney', 'Mumbai', 'Toronto', 'Paris', 'Singapore'];
-	const amounts = ['$25', '$50', '$100', '$500', '$1,000'];
-	
-	function updateLiveSupporter() {
-		const locationEl = document.getElementById('supporter-location');
-		const amountEl = document.getElementById('supporter-amount');
-		
-		if (locationEl && amountEl) {
-			locationEl.textContent = locations[Math.floor(Math.random() * locations.length)];
-			amountEl.textContent = amounts[Math.floor(Math.random() * amounts.length)];
-			
-			// Flash animation
-			const liveUpdate = document.querySelector('.live-update');
-			if (liveUpdate) {
-				liveUpdate.style.animation = 'none';
-				setTimeout(() => {
-					liveUpdate.style.animation = 'pulse-glow 2s infinite, fadeIn 0.5s ease-out';
-				}, 10);
-			}
-		}
-	}
-	
-	// Update every 8 seconds
-	setInterval(updateLiveSupporter, 8000);
-</script>

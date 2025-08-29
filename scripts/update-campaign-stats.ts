@@ -24,7 +24,6 @@ const MOCK_DATA = {
     goal: CAMPAIGN_GOAL,
     raised: 1247,
     supporters: 23,
-    daysLeft: CAMPAIGN_END_DATE ? Math.ceil((CAMPAIGN_END_DATE.getTime() - Date.now()) / (1000 * 60 * 60 * 24)) : null,
     lastContribution: {
       amount: 100,
       timeAgo: "2 hours ago"
@@ -46,23 +45,6 @@ const MOCK_DATA = {
         location: "Japan"
       }
     ],
-    limitedRewards: {
-      earlyBird: {
-        total: 100,
-        remaining: 17,
-        discount: "50% off first year"
-      },
-      foundingMember: {
-        total: 50,
-        remaining: 8,
-        perk: "Lifetime Pro access"
-      },
-      advisoryBoard: {
-        total: 10,
-        remaining: 3,
-        perk: "Direct input on features"
-      }
-    },
     milestones: {
       current: 1247,
       next: 2500,
@@ -153,11 +135,6 @@ async function fetchStripeData() {
       }
     }
 
-    // Calculate stats
-    const daysLeft = CAMPAIGN_END_DATE ? 
-      Math.ceil((CAMPAIGN_END_DATE.getTime() - Date.now()) / (1000 * 60 * 60 * 24)) : 
-      null;
-    
     // Calculate trend
     const previousWeekRaised = raised7Days - raised24Hours;
     const percentIncrease = previousWeekRaised > 0 ? 
@@ -178,7 +155,6 @@ async function fetchStripeData() {
         ...MOCK_DATA.campaign,
         raised: totalRaised || MOCK_DATA.campaign.raised,
         supporters: supporters.size || MOCK_DATA.campaign.supporters,
-        daysLeft,
         lastContribution,
         recentSupporters: recentContributions.length > 0 ? recentContributions : MOCK_DATA.campaign.recentSupporters,
         milestones: {
@@ -292,11 +268,6 @@ async function main() {
   console.log(`   Goal: $${stats.campaign.goal}`);
   console.log(`   Raised: $${stats.campaign.raised} (${Math.round((stats.campaign.raised / stats.campaign.goal) * 100)}%)`);
   console.log(`   Supporters: ${stats.campaign.supporters}`);
-  if (stats.campaign.daysLeft !== null) {
-    console.log(`   Days left: ${stats.campaign.daysLeft}`);
-  } else {
-    console.log(`   Duration: Ongoing (no end date set)`);
-  }
 }
 
 // Run the script

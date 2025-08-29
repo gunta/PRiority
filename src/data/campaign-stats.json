@@ -3,7 +3,6 @@
     "goal": 10000,
     "raised": 1247,
     "supporters": 23,
-    "daysLeft": null,
     "lastContribution": {
       "amount": 100,
       "timeAgo": "2 hours ago"
@@ -25,23 +24,6 @@
         "location": "Japan"
       }
     ],
-    "limitedRewards": {
-      "earlyBird": {
-        "total": 100,
-        "remaining": 17,
-        "discount": "50% off first year"
-      },
-      "foundingMember": {
-        "total": 50,
-        "remaining": 8,
-        "perk": "Lifetime Pro access"
-      },
-      "advisoryBoard": {
-        "total": 10,
-        "remaining": 3,
-        "perk": "Direct input on features"
-      }
-    },
     "milestones": {
       "current": 1247,
       "next": 2500,
