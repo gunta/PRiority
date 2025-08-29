@@ -83,9 +83,30 @@ import '../styles/global.css';
 			zIndex={9999}
 		/>
 
-		<!-- Announcement Bar -->
-		<div class="fixed top-0 left-0 right-0 z-[110] bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 text-white py-2 px-4 text-center text-sm font-semibold animate-gradient-x">
-			🚨 Building the future of open source sustainability · Limited spots available 🚨
+		<!-- FOMO Announcement Bar -->
+		<div class="fomo-banner fixed top-0 left-0 right-0 z-[110]">
+			<div class="fomo-content">
+				<div class="fomo-ticker">
+					<span class="fomo-item">
+						🔥 <strong>$2,500</strong> raised in last 24 hours
+					</span>
+					<span class="fomo-divider">·</span>
+					<span class="fomo-item">
+						⚡ <strong>17</strong> early bird spots left (50% off)
+					</span>
+					<span class="fomo-divider">·</span>
+					<span class="fomo-item">
+						⏰ <strong>47 days</strong> until campaign ends
+					</span>
+					<span class="fomo-divider">·</span>
+					<span class="fomo-item live-update">
+						💚 Someone from <span id="supporter-location">Berlin</span> just contributed <span id="supporter-amount">$100</span>
+					</span>
+				</div>
+				<a href="/PRiority/fund" class="fomo-cta">
+					Join Now →
+				</a>
+			</div>
 		</div>
 		
 		<!-- Navigation -->
@@ -559,6 +580,37 @@ import '../styles/global.css';
 			</a>
 		</div>
 
+		<!-- Floating Campaign Widget -->
+		<div class="floating-campaign-widget fixed bottom-8 left-8 z-[90]">
+			<div class="widget-content">
+				<div class="widget-header">
+					<span class="widget-badge">LIVE</span>
+					<span class="widget-title">Campaign Progress</span>
+				</div>
+				<div class="widget-progress">
+					<div class="progress-bar">
+						<div class="progress-fill" id="widget-progress"></div>
+					</div>
+					<div class="progress-stats">
+						<span class="raised-amount" id="widget-raised">$1,247</span>
+						<span class="goal-amount">of $10K</span>
+					</div>
+				</div>
+				<div class="widget-footer">
+					<div class="supporter-count">
+						<span class="supporter-icon">👥</span>
+						<span id="widget-supporters">23</span> backers
+					</div>
+					<div class="time-left">
+						⏰ <span id="widget-days">47</span> days left
+					</div>
+				</div>
+				<a href="/PRiority/fund" class="widget-cta">
+					View Campaign →
+				</a>
+			</div>
+		</div>
+
 		<!-- Footer -->
 		<footer class="relative z-10 px-6 py-12 lg:px-12 backdrop-blur-xl overflow-hidden">
 			<!-- Glass surface effect -->
@@ -593,6 +645,39 @@ import '../styles/global.css';
 				</div>
 			</div>
 		</footer>
+
+		<!-- Floating FOMO Widget -->
+		<div class="fomo-widget" id="fomo-widget">
+			<div class="fomo-widget-header">
+				<span class="fomo-widget-title">🔥 Campaign Live</span>
+				<button class="fomo-widget-close" onclick="document.getElementById('fomo-widget').style.display='none'">×</button>
+			</div>
+			<div class="fomo-widget-content">
+				<div class="fomo-stat">
+					<div class="fomo-stat-value" id="widget-raised">$1,247</div>
+					<div class="fomo-stat-label">raised of $10k goal</div>
+					<div class="fomo-progress">
+						<div class="fomo-progress-bar" style="width: 12.47%"></div>
+					</div>
+				</div>
+				<div class="fomo-recent">
+					<div class="fomo-recent-item" id="recent-1">
+						<span class="fomo-time">2 min ago</span>
+						<span class="fomo-action">Someone backed $100</span>
+					</div>
+					<div class="fomo-recent-item" id="recent-2">
+						<span class="fomo-time">15 min ago</span>
+						<span class="fomo-action">New supporter from Tokyo</span>
+					</div>
+				</div>
+				<div class="fomo-urgency">
+					⚡ Only <strong>17</strong> early bird spots left!
+				</div>
+				<a href="/PRiority/fund" class="fomo-widget-cta">
+					View Campaign →
+				</a>
+			</div>
+		</div>
 	</div>
 </Layout>
 
@@ -718,4 +803,305 @@ import '../styles/global.css';
 			gap: 24px;
 		}
 	}
+
+	/* FOMO Banner Styles */
+	.fomo-banner {
+		background: linear-gradient(90deg, #1e1b4b, #312e81, #1e1b4b);
+		background-size: 200% 100%;
+		animation: gradient-shift 10s ease infinite;
+		padding: 8px 16px;
+		border-bottom: 1px solid rgba(147, 51, 234, 0.3);
+		box-shadow: 0 2px 10px rgba(147, 51, 234, 0.2);
+	}
+
+	@keyframes gradient-shift {
+		0%, 100% { background-position: 0% 50%; }
+		50% { background-position: 100% 50%; }
+	}
+
+	.fomo-content {
+		max-width: 1400px;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 20px;
+	}
+
+	.fomo-ticker {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		overflow-x: auto;
+		flex: 1;
+		font-size: 14px;
+		color: #e0e7ff;
+	}
+
+	.fomo-ticker::-webkit-scrollbar {
+		display: none;
+	}
+
+	.fomo-item {
+		white-space: nowrap;
+		animation: fadeIn 1s ease-out;
+	}
+
+	.fomo-item strong {
+		color: #fbbf24;
+		font-weight: 700;
+	}
+
+	.fomo-divider {
+		color: #6366f1;
+		opacity: 0.5;
+	}
+
+	.live-update {
+		animation: pulse-glow 2s infinite;
+	}
+
+	@keyframes pulse-glow {
+		0%, 100% { opacity: 0.8; }
+		50% { opacity: 1; filter: brightness(1.2); }
+	}
+
+	.fomo-cta {
+		background: linear-gradient(135deg, #f59e0b, #ef4444);
+		color: white;
+		padding: 6px 16px;
+		border-radius: 20px;
+		font-weight: 600;
+		text-decoration: none;
+		white-space: nowrap;
+		transition: all 0.3s ease;
+		box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+		animation: cta-pulse 2s infinite;
+	}
+
+	@keyframes cta-pulse {
+		0%, 100% { transform: scale(1); }
+		50% { transform: scale(1.05); }
+	}
+
+	.fomo-cta:hover {
+		background: linear-gradient(135deg, #fbbf24, #f97316);
+		box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5);
+		transform: scale(1.1);
+	}
+
+	@media (max-width: 768px) {
+		.fomo-content {
+			flex-direction: column;
+			gap: 8px;
+		}
+
+		.fomo-ticker {
+			justify-content: center;
+		}
+
+		.fomo-divider {
+			display: none;
+		}
+	}
+
+	/* Floating FOMO Widget */
+	.fomo-widget {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		width: 320px;
+		background: linear-gradient(135deg, #1e1b4b, #312e81);
+		border-radius: 16px;
+		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 60px rgba(147, 51, 234, 0.3);
+		z-index: 1000;
+		animation: slideIn 0.5s ease-out, float 3s ease-in-out infinite;
+		border: 1px solid rgba(147, 51, 234, 0.4);
+	}
+
+	@keyframes slideIn {
+		from {
+			transform: translateX(400px);
+			opacity: 0;
+		}
+		to {
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+
+	@keyframes float {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(-10px); }
+	}
+
+	.fomo-widget-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 12px 16px;
+		border-bottom: 1px solid rgba(147, 51, 234, 0.3);
+	}
+
+	.fomo-widget-title {
+		color: #fbbf24;
+		font-weight: 700;
+		font-size: 14px;
+	}
+
+	.fomo-widget-close {
+		background: none;
+		border: none;
+		color: #8b949e;
+		font-size: 24px;
+		cursor: pointer;
+		padding: 0;
+		width: 24px;
+		height: 24px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: color 0.3s ease;
+	}
+
+	.fomo-widget-close:hover {
+		color: #fff;
+	}
+
+	.fomo-widget-content {
+		padding: 16px;
+	}
+
+	.fomo-stat {
+		margin-bottom: 16px;
+		text-align: center;
+	}
+
+	.fomo-stat-value {
+		font-size: 28px;
+		font-weight: 700;
+		background: linear-gradient(135deg, #60a5fa, #c084fc);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		margin-bottom: 4px;
+	}
+
+	.fomo-stat-label {
+		color: #8b949e;
+		font-size: 12px;
+		margin-bottom: 8px;
+	}
+
+	.fomo-progress {
+		height: 6px;
+		background: rgba(0, 0, 0, 0.4);
+		border-radius: 3px;
+		overflow: hidden;
+	}
+
+	.fomo-progress-bar {
+		height: 100%;
+		background: linear-gradient(90deg, #3b82f6, #9333ea);
+		border-radius: 3px;
+		animation: shimmer 2s infinite;
+	}
+
+	.fomo-recent {
+		margin-bottom: 16px;
+		padding: 12px;
+		background: rgba(0, 0, 0, 0.3);
+		border-radius: 8px;
+	}
+
+	.fomo-recent-item {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 6px 0;
+		font-size: 12px;
+		color: #c9d1d9;
+		animation: fadeIn 0.5s ease-out;
+	}
+
+	.fomo-time {
+		color: #8b949e;
+		font-size: 11px;
+	}
+
+	.fomo-action {
+		color: #60a5fa;
+	}
+
+	.fomo-urgency {
+		text-align: center;
+		padding: 8px;
+		background: rgba(245, 158, 11, 0.1);
+		border: 1px solid rgba(245, 158, 11, 0.3);
+		border-radius: 8px;
+		margin-bottom: 12px;
+		font-size: 13px;
+		color: #fbbf24;
+	}
+
+	.fomo-urgency strong {
+		color: #f59e0b;
+		font-weight: 700;
+	}
+
+	.fomo-widget-cta {
+		display: block;
+		width: 100%;
+		text-align: center;
+		padding: 10px;
+		background: linear-gradient(135deg, #9333ea, #3b82f6);
+		color: white;
+		border-radius: 8px;
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 14px;
+		transition: all 0.3s ease;
+		box-shadow: 0 4px 15px rgba(147, 51, 234, 0.3);
+	}
+
+	.fomo-widget-cta:hover {
+		background: linear-gradient(135deg, #a855f7, #60a5fa);
+		transform: scale(1.05);
+		box-shadow: 0 6px 20px rgba(147, 51, 234, 0.5);
+	}
+
+	@media (max-width: 768px) {
+		.fomo-widget {
+			width: calc(100% - 40px);
+			right: 20px;
+			left: 20px;
+		}
+	}
 </style>
+
+<script>
+	// FOMO Banner Updates
+	const locations = ['Tokyo', 'London', 'New York', 'Berlin', 'Sydney', 'Mumbai', 'Toronto', 'Paris', 'Singapore'];
+	const amounts = ['$25', '$50', '$100', '$500', '$1,000'];
+	
+	function updateLiveSupporter() {
+		const locationEl = document.getElementById('supporter-location');
+		const amountEl = document.getElementById('supporter-amount');
+		
+		if (locationEl && amountEl) {
+			locationEl.textContent = locations[Math.floor(Math.random() * locations.length)];
+			amountEl.textContent = amounts[Math.floor(Math.random() * amounts.length)];
+			
+			// Flash animation
+			const liveUpdate = document.querySelector('.live-update');
+			if (liveUpdate) {
+				liveUpdate.style.animation = 'none';
+				setTimeout(() => {
+					liveUpdate.style.animation = 'pulse-glow 2s infinite, fadeIn 0.5s ease-out';
+				}, 10);
+			}
+		}
+	}
+	
+	// Update every 8 seconds
+	setInterval(updateLiveSupporter, 8000);
+</script>

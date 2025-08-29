@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "update-stats": "tsx scripts/update-campaign-stats.ts"
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",
@@ -26,8 +27,11 @@
   },
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.2",
+    "@types/node": "^24.3.0",
     "@types/react": "^19.1.11",
     "@types/react-dom": "^19.1.7",
-    "tailwindcss": "^4.1.12"
+    "stripe": "^18.5.0",
+    "tailwindcss": "^4.1.12",
+    "tsx": "^4.20.5"
   }
 }

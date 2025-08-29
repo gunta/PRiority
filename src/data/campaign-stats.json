@@ -1,0 +1,66 @@
+{
+  "campaign": {
+    "goal": 10000,
+    "raised": 1247,
+    "supporters": 23,
+    "daysLeft": null,
+    "lastContribution": {
+      "amount": 100,
+      "timeAgo": "2 hours ago"
+    },
+    "recentSupporters": [
+      {
+        "amount": 500,
+        "timeAgo": "1 hour ago",
+        "location": "United States"
+      },
+      {
+        "amount": 100,
+        "timeAgo": "2 hours ago",
+        "location": "Germany"
+      },
+      {
+        "amount": 2500,
+        "timeAgo": "5 hours ago",
+        "location": "Japan"
+      }
+    ],
+    "limitedRewards": {
+      "earlyBird": {
+        "total": 100,
+        "remaining": 17,
+        "discount": "50% off first year"
+      },
+      "foundingMember": {
+        "total": 50,
+        "remaining": 8,
+        "perk": "Lifetime Pro access"
+      },
+      "advisoryBoard": {
+        "total": 10,
+        "remaining": 3,
+        "perk": "Direct input on features"
+      }
+    },
+    "milestones": {
+      "current": 1247,
+      "next": 2500,
+      "nextUnlock": "AI Agent Development",
+      "ultimateGoal": 10000,
+      "ultimateUnlock": "Full MVP Launch"
+    },
+    "momentum": {
+      "last24Hours": 347,
+      "last7Days": 892,
+      "trending": "up",
+      "percentIncrease": 38
+    }
+  },
+  "liveStats": {
+    "issuesUnfixed": 2341567,
+    "hoursWastedToday": 8847,
+    "moneyLostToday": 442350,
+    "maintainersBurnedOut": 147,
+    "criticalBugsWaiting": 47892
+  }
+}
