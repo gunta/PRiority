@@ -6,7 +6,6 @@ import TechnicalDetails from '../components/TechnicalDetails.astro';
 import MagicBento from '../components/MagicBento.astro';
 import SpotlightCard from '../components/SpotlightCard.astro';
 import CTA from '../components/CTA.astro';
-import CrowdfundingCampaign from '../components/CrowdfundingCampaign.astro';
 import TechLogos from '../components/TechLogos.tsx';
 import InteractiveWorkflow from '../components/InteractiveWorkflow.tsx';
 import FAQ from '../components/FAQ.astro';
@@ -98,7 +97,7 @@ import '../styles/global.css';
 				<div class="flex items-center space-x-6">
 					<a href="#how-it-works" class="hidden md:block text-gray-400 hover:text-white transition-all duration-200 font-medium">How it Works</a>
 					<a href="#magic-bento" class="hidden md:block text-gray-400 hover:text-white transition-all duration-200 font-medium">Features</a>
-					<a href="#fund" class="hidden md:block text-blue-400 hover:text-blue-300 transition-all duration-200 font-semibold">Support</a>
+					<a href="/PRiority/fund" class="hidden md:block text-blue-400 hover:text-blue-300 transition-all duration-200 font-semibold">Support</a>
 					<GitHubStarButton client:load showCount={true} />
 				</div>
 			</div>
@@ -509,7 +508,40 @@ import '../styles/global.css';
 		</div>
 
 		<div class="relative z-10">
-			<CrowdfundingCampaign />
+			<!-- Support Campaign Section -->
+			<section class="support-campaign-section py-20 px-6 lg:px-12">
+				<div class="max-w-4xl mx-auto text-center">
+					<h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Help Validate PRiority</h2>
+					<p class="text-xl text-gray-400 mb-8">
+						Join our crowd-validation campaign to help determine if the open source community needs PRiority.
+						Your support validates demand and helps bring sustainable funding to developers worldwide.
+					</p>
+					<div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+						<a href="/PRiority/fund" class="fund-cta-button">
+							<span class="rocket-icon">🚀</span>
+							Support the Vision
+							<span class="arrow">→</span>
+						</a>
+						<a href="/PRiority/validation-disclosure" class="text-gray-400 hover:text-white transition-colors underline">
+							Learn about crowd-validation
+						</a>
+					</div>
+					<div class="stats-row">
+						<div class="stat-item">
+							<div class="stat-number">$10K</div>
+							<div class="stat-label">Validation Goal</div>
+						</div>
+						<div class="stat-item">
+							<div class="stat-number">8</div>
+							<div class="stat-label">Support Tiers</div>
+						</div>
+						<div class="stat-item">
+							<div class="stat-number">100%</div>
+							<div class="stat-label">Open Source</div>
+						</div>
+					</div>
+				</div>
+			</section>
 		</div>
 
 		<div class="relative z-10">
@@ -519,7 +551,7 @@ import '../styles/global.css';
 		<!-- Floating Action Buttons -->
 		<div class="fixed bottom-8 right-8 z-[90] flex flex-col gap-3">
 			<GitHubStarButton client:load showCount={true} className="shadow-lg hover:shadow-2xl" />
-			<a href="#fund" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2 justify-center">
+			<a href="/PRiority/fund" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2 justify-center">
 				<span class="font-semibold">Back This Project</span>
 				<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -563,3 +595,127 @@ import '../styles/global.css';
 		</footer>
 	</div>
 </Layout>
+
+<style>
+	.support-campaign-section {
+		position: relative;
+		background: linear-gradient(135deg, rgba(147, 51, 234, 0.05), rgba(59, 130, 246, 0.05));
+		border-top: 1px solid rgba(147, 51, 234, 0.2);
+		border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+		overflow: hidden;
+	}
+
+	.support-campaign-section::before {
+		content: '';
+		position: absolute;
+		top: -50%;
+		left: -50%;
+		width: 200%;
+		height: 200%;
+		background: radial-gradient(circle, rgba(147, 51, 234, 0.1) 0%, transparent 70%);
+		animation: pulse 8s ease-in-out infinite;
+	}
+
+	.fund-cta-button {
+		display: inline-flex;
+		align-items: center;
+		gap: 12px;
+		padding: 18px 36px;
+		background: linear-gradient(135deg, #9333ea, #3b82f6);
+		color: white;
+		font-size: 18px;
+		font-weight: 700;
+		border-radius: 12px;
+		text-decoration: none;
+		transition: all 0.3s ease;
+		box-shadow: 0 10px 30px rgba(147, 51, 234, 0.3);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.fund-cta-button:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 15px 40px rgba(147, 51, 234, 0.4);
+		background: linear-gradient(135deg, #a855f7, #60a5fa);
+	}
+
+	.fund-cta-button::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+		transition: left 0.5s ease;
+	}
+
+	.fund-cta-button:hover::before {
+		left: 100%;
+	}
+
+	.rocket-icon {
+		font-size: 24px;
+	}
+
+	.arrow {
+		transition: transform 0.3s ease;
+		display: inline-block;
+	}
+
+	.fund-cta-button:hover .arrow {
+		transform: translateX(5px);
+	}
+
+	.stats-row {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		gap: 32px;
+		margin-top: 48px;
+		padding-top: 48px;
+		border-top: 1px solid rgba(147, 51, 234, 0.2);
+	}
+
+	.stat-item {
+		text-align: center;
+	}
+
+	.stat-number {
+		font-size: 36px;
+		font-weight: 700;
+		background: linear-gradient(135deg, #9333ea, #3b82f6);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		margin-bottom: 8px;
+	}
+
+	.stat-label {
+		color: #8b949e;
+		font-size: 14px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	@keyframes pulse {
+		0%, 100% {
+			opacity: 0.4;
+			transform: scale(1);
+		}
+		50% {
+			opacity: 0.7;
+			transform: scale(1.1);
+		}
+	}
+
+	@media (max-width: 640px) {
+		.fund-cta-button {
+			width: 100%;
+			justify-content: center;
+		}
+
+		.stats-row {
+			grid-template-columns: 1fr;
+			gap: 24px;
+		}
+	}
+</style>
