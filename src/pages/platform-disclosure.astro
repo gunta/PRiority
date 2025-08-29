@@ -6,7 +6,13 @@ import Layout from '../layouts/Layout.astro';
 	title="Platform Commerce Disclosure - PRiority"
 	description="Commercial disclosure for PRiority platform services in compliance with applicable regulations."
 >
-	<div class="relative overflow-hidden">
+	<div class="relative min-h-screen overflow-hidden bg-black text-white">
+		<!-- Background Effects -->
+		<div class="fixed inset-0 z-0">
+			<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-pink-900/20"></div>
+			<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]"></div>
+		</div>
+		
 		<!-- Navigation -->
 		<nav class="fixed top-0 left-0 right-0 z-[100] px-6 py-4 lg:px-12 bg-black/80 backdrop-blur-md border-b border-gray-800/50">
 			<div class="max-w-7xl mx-auto flex items-center justify-between">
@@ -251,11 +257,15 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
+	/* Import global styles */
+	@import url('../styles/global.css');
+
 	.glass-card {
 		background: rgba(17, 24, 39, 0.8);
 		backdrop-filter: blur(16px);
 		border: 1px solid rgba(55, 65, 81, 0.3);
 		border-radius: 1rem;
+		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 	}
 
 	.gradient-text {
@@ -267,5 +277,18 @@ import Layout from '../layouts/Layout.astro';
 
 	section {
 		scroll-margin-top: 100px;
+	}
+
+	/* Ensure proper text contrast */
+	body {
+		background-color: #000;
+		color: #fff;
+	}
+
+	/* Enhanced glass card styling */
+	.glass-card:hover {
+		background: rgba(17, 24, 39, 0.9);
+		transform: translateY(-2px);
+		transition: all 0.3s ease;
 	}
 </style>
